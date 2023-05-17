@@ -1,0 +1,137 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: --max-old-space-size=4096
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+          commit: 'chore: release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  deploy-chromatic:
+    name: 'Deploy storybook to Chromatic'
+    needs: publish
+    if: needs.publish.outputs.published == 'false'
+    runs-on: ubuntu-latest
+    environment:
+      name: Chromatic Production
+      url: ${{ steps.publish_chromatic.outputs.url }}
+    env:
+      NODE_OPTIONS: --max-old-space-size=4096
+      CHROMATIC_RETRIES: 5
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - uses: actions/cache@v2
+        name: Download storybook cache
+        with:
+          path: |
+            **/node_modules/.cache
+          key: ${{ runner.os }}-storybook-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-storybook
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Publish to Chromatic
+        id: publish_chromatic
+        uses: chromaui/action@v1
+        with:
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
+          autoAcceptChanges: true
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+  deploy-docs:
+    name: 'Deploy Latest documentation'
+    needs: publish
+    if: needs.publish.outputs.published == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: Docs Production
+      url: ${{ steps.publish_docs.outputs.NETLIFY_PREVIEW_URL }}
+    env:
+      NODE_OPTIONS: --max-old-space-size=4096
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - uses: actions/cache@v2
+        name: Download storybook cache
+        with:
+          path: |
+            **/node_modules/.cache
+          key: ${{ runner.os }}-storybook-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-storybook
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Docs
+        run: pnpm build-docs --quiet
+
+      - name: Deploy docs to Netlify
+        uses: South-Paw/action-netlify-deploy@v1.2.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          build-dir: ./storybook-docs
