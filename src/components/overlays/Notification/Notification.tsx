@@ -1,9 +1,9 @@
 import {
-  CheckOutlined,
-  CloseOutlined,
-  ExclamationOutlined,
-  InfoOutlined,
-} from '@ant-design/icons';
+  Check,
+  X,
+  WarningCircle,
+  Info,
+} from '@jengaicons/react';
 
 import { Action } from '../../actions/Action';
 import { Card, JengaCardProps } from '../../content/Card/Card';
@@ -77,13 +77,13 @@ export function Notification(allProps: JengaNotificationProps) {
 
   switch (theme) {
     case 'success':
-      Icon = CheckOutlined;
+      Icon = Check;
       break;
     case 'danger':
-      Icon = ExclamationOutlined;
+      Icon = WarningCircle;
       break;
     default:
-      Icon = InfoOutlined;
+      Icon = Info;
       break;
   }
 
@@ -94,7 +94,7 @@ export function Notification(allProps: JengaNotificationProps) {
       </div>
       <Block>{children}</Block>
       <CloseButton onPress={onClose}>
-        <CloseOutlined />
+        <X />
       </CloseButton>
     </NotificationElement>
   );

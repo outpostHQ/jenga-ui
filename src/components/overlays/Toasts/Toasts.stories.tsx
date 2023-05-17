@@ -1,7 +1,7 @@
 import { expect } from '@storybook/jest';
 import { Meta, Story } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
-import { BellOutlined } from '@ant-design/icons';
+import { Bell } from '@jengaicons/react';
 
 import { Button } from '../../actions';
 
@@ -49,5 +49,5 @@ export const AllTypes: Story<JengaToastsApiProps> = () => (
 
 export const CustomIcon = AsComponent.bind({});
 CustomIcon.args = {
-  icon: <BellOutlined style={{ display: 'flex', alignSelf: 'center' }} />,
+  icon: <Bell style={{ display: 'flex', alignSelf: 'center' }} />,
 };

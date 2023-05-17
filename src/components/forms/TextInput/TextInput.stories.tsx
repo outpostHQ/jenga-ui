@@ -1,4 +1,4 @@
-import { DollarCircleOutlined } from '@ant-design/icons';
+import { CurrencyCircleDollar } from '@jengaicons/react';
 import { StoryFn } from '@storybook/react';
 
 import {
@@ -30,7 +30,7 @@ const Template: StoryFn<JengaTextInputProps & { icon?: boolean }> = ({
   ...props
 }) => (
   <TextInput
-    icon={icon ? <DollarCircleOutlined /> : undefined}
+    icon={icon ? <CurrencyCircleDollar /> : undefined}
     {...props}
     onChange={(query) => console.log('change', query)}
   />

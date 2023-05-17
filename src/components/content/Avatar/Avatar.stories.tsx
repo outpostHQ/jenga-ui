@@ -1,4 +1,4 @@
-import { DollarCircleOutlined } from '@ant-design/icons';
+import { CurrencyCircleDollar } from '@jengaicons/react';
 
 import { baseProps } from '../../../stories/lists/baseProps';
 
@@ -15,7 +15,7 @@ export default {
 };
 
 const Template = ({ label, icon, ...args }) => (
-  <Avatar {...args} icon={icon ? <DollarCircleOutlined /> : null}>
+  <Avatar {...args} icon={icon ? <CurrencyCircleDollar /> : null}>
     {label}
   </Avatar>
 );

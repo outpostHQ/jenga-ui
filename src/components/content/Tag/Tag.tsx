@@ -1,5 +1,5 @@
 import { forwardRef, ReactNode } from 'react';
-import { CloseOutlined } from '@ant-design/icons';
+import { X } from '@jengaicons/react';
 
 import THEMES from '../../../data/themes';
 import {
@@ -122,7 +122,7 @@ function Tag(allProps: JengaTagProps, ref) {
       {isClosable ? (
         <Suffix outerGap="0">
           <CloseAction styles={closeButtonStyles} onPress={onClose}>
-            <CloseOutlined
+            <X
               style={{
                 fontSize: 'var(--font-size, inherit)',
               }}

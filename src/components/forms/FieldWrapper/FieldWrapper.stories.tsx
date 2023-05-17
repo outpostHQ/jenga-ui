@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { DollarCircleFilled } from '@ant-design/icons';
+import { CurrencyDollarFill } from '@jengaicons/react';
 
 import { Button } from '../../actions';
 import { Text } from '../../content/Text';
@@ -111,7 +111,7 @@ WithSuffixExtraAndTooltip.args = {
 export const WithButtonSuffix = Template.bind({});
 WithButtonSuffix.args = {
   labelSuffix: (
-    <Button size="small" icon={<DollarCircleFilled />} placeSelf="center" />
+    <Button size="small" icon={<CurrencyDollarFill />} placeSelf="center" />
   ),
 };
 
@@ -123,7 +123,7 @@ WithButtonSuffixAndTooltip.args = {
       height="3x"
       type="clear"
       size="small"
-      icon={<DollarCircleFilled />}
+      icon={<CurrencyDollarFill />}
       placeSelf="center"
     />
   ),

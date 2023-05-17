@@ -1,5 +1,5 @@
 import { ComponentMeta, Story } from '@storybook/react';
-import { SettingOutlined } from '@ant-design/icons';
+import { Gear } from '@jengaicons/react';
 
 import { baseProps } from '../../../stories/lists/baseProps';
 
@@ -29,7 +29,7 @@ export const WithCustomButton = Template.bind({});
 WithCustomButton.args = {
   code: 'npm install -g jengajs-cli',
   prefix: '$ ',
-  actions: <CopySnippet.Button icon={<SettingOutlined />} />,
+  actions: <CopySnippet.Button icon={<Gear />} />,
 };
 
 export const Hidden = Template.bind({});

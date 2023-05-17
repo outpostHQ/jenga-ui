@@ -1,7 +1,7 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { CloseOutlined } from '@ant-design/icons';
+import { X } from '@jengaicons/react';
 import { CSSTransition } from 'react-transition-group';
 
 import { Action } from '../../actions/Action';
@@ -239,7 +239,7 @@ export function Modal(allProps: JengaModalProps) {
                 label="Close"
                 onPress={onClose || onCancel}
               >
-                <CloseOutlined style={{ fontSize: 16 }} />
+                <X style={{ fontSize: 16 }} />
               </Action>
             ) : null}
           </Flex>

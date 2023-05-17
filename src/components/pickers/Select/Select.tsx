@@ -1,8 +1,8 @@
 import {
-  CheckOutlined,
-  LoadingOutlined,
-  WarningOutlined,
-} from '@ant-design/icons';
+  Check,
+  CircleNotch,
+  Warning,
+} from '@jengaicons/react';
 import {
   cloneElement,
   forwardRef,
@@ -373,12 +373,12 @@ function Select<T extends object>(
   let isInvalid = validationState === 'invalid';
 
   let validationIcon = isInvalid ? (
-    <WarningOutlined
+    <Warning
       data-element="ValidationIcon"
       style={{ color: 'var(--danger-color)' }}
     />
   ) : (
-    <CheckOutlined
+    <Check
       data-element="ValidationIcon"
       style={{ color: 'var(--success-color)' }}
     />
@@ -462,7 +462,7 @@ function Select<T extends object>(
         <div data-element="Suffix">
           {suffixPosition === 'before' ? suffix : null}
           {validationState && !isLoading ? validation : null}
-          {isLoading && <LoadingOutlined />}
+          {isLoading && <CircleNotch />}
           {suffixPosition === 'after' ? suffix : null}
           <div data-element="CaretIcon">
             <CaretDownIcon />

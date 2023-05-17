@@ -1,4 +1,4 @@
-import { DollarCircleOutlined } from '@ant-design/icons';
+import { CurrencyCircleDollar } from '@jengaicons/react';
 
 import { Tag } from './Tag';
 
@@ -57,7 +57,7 @@ Default.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  icon: <DollarCircleOutlined />,
+  icon: <CurrencyCircleDollar />,
   label: 'Tag name or content',
 };
 

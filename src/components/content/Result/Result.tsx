@@ -1,10 +1,10 @@
 import { ComponentType, forwardRef, ReactNode, useMemo } from 'react';
 import {
-  CheckCircleFilled,
-  CloseCircleFilled,
-  InfoCircleFilled,
-  WarningFilled,
-} from '@ant-design/icons';
+  CheckCircleFill,
+  XCircleFill,
+  InfoFill,
+  WarningFill,
+} from '@jengaicons/react';
 
 import { Title } from '../Title';
 import {
@@ -90,19 +90,19 @@ const IconWrapper = tasty({
 const statusIconMap: StatusIconMap = {
   success: {
     color: '#success',
-    component: CheckCircleFilled,
+    component: CheckCircleFill,
   },
   error: {
     color: '#danger',
-    component: CloseCircleFilled,
+    component: XCircleFill,
   },
   info: {
     color: '#purple',
-    component: InfoCircleFilled,
+    component: InfoFill,
   },
   warning: {
     color: '#note',
-    component: WarningFilled,
+    component: WarningFill,
   },
   404: {
     color: '#purple',

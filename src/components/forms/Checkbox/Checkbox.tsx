@@ -39,7 +39,7 @@ export interface JengaCheckboxProps
     AriaCheckboxProps,
     FormFieldProps {}
 
-function CheckOutlined() {
+function Check() {
   return (
     <svg width="10" height="8" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -196,7 +196,7 @@ function Checkbox(
         inputRef,
       );
 
-  let markIcon = isIndeterminate ? <IndeterminateOutline /> : <CheckOutlined />;
+  let markIcon = isIndeterminate ? <IndeterminateOutline /> : <Check />;
 
   if (groupState) {
     for (let key of ['isSelected', 'defaultSelected', 'isEmphasized']) {

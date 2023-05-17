@@ -1,5 +1,5 @@
 import { cloneElement, forwardRef, ReactElement, useMemo } from 'react';
-import { LoadingOutlined } from '@ant-design/icons';
+import { CircleNotch } from '@jengaicons/react';
 import { FocusableRef } from '@react-types/shared';
 
 import { JengaActionProps } from '../Action';
@@ -351,7 +351,7 @@ export const Button = forwardRef(function Button(
       data-size={size ?? 'medium'}
       styles={styles}
     >
-      {icon || isLoading ? !isLoading ? icon : <LoadingOutlined /> : null}
+      {icon || isLoading ? !isLoading ? icon : <CircleNotch /> : null}
       {children}
       {rightIcon}
     </ButtonElement>

@@ -1,4 +1,4 @@
-import { DollarCircleOutlined } from '@ant-design/icons';
+import { CurrencyCircleDollar } from '@jengaicons/react';
 import { Meta, Story } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 
@@ -40,7 +40,7 @@ export const WithDefaultValue = Template.bind({});
 WithDefaultValue.args = { defaultSelectedKey: 'purple' };
 
 export const WithIcon = Template.bind({});
-WithIcon.args = { icon: <DollarCircleOutlined /> };
+WithIcon.args = { icon: <CurrencyCircleDollar /> };
 
 export const Invalid = Template.bind({});
 Invalid.args = { selectedKey: 'yellow', validationState: 'invalid' };

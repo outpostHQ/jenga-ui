@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { CloseOutlined } from '@ant-design/icons';
+import { X } from '@jengaicons/react';
 import styled from 'styled-components';
 
 import { Block } from '../../Block';
@@ -244,7 +244,7 @@ function Tab({
           <Flex placeItems="center" style={{ position: 'relative' }}>
             {isClosable ? (
               <CloseButton onPress={onClose}>
-                <CloseOutlined />
+                <X />
               </CloseButton>
             ) : (
               <div></div>
