@@ -310,7 +310,6 @@ export const ComplexInteraction: Story<JengaNotificationProps> = (args) => {
         alignItems="center"
         justifyContent="space-between"
       >
-
         <NotificationsDialogTrigger
           onCloseNotificationInBar={(props) => {
             setNotifications((current) => [
@@ -319,11 +318,7 @@ export const ComplexInteraction: Story<JengaNotificationProps> = (args) => {
             ]);
           }}
         >
-          <Button
-            icon={<Bell />}
-            type="clear"
-            label="Open Notifications"
-          />
+          <Button icon={<Bell />} type="clear" label="Open Notifications" />
 
           <NotificationsDialog>
             {notifications.length > 0 ? (

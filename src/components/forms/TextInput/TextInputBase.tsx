@@ -1,8 +1,4 @@
-import {
-  Check,
-  CircleNotch,
-  Warning,
-} from '@jengaicons/react';
+import { Check, CircleNotch, Warning } from '@jengaicons/react';
 import { createFocusableRef } from '@react-spectrum/utils';
 import {
   cloneElement,

@@ -1,9 +1,4 @@
-import {
-  Check,
-  X,
-  WarningCircle,
-  Info,
-} from '@jengaicons/react';
+import { Check, X, WarningCircle, Info } from '@jengaicons/react';
 
 import { Action } from '../../actions/Action';
 import { Card, JengaCardProps } from '../../content/Card/Card';

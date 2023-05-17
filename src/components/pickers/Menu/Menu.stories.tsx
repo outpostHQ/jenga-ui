@@ -348,7 +348,11 @@ export const ItemCustomIcons = (props) => {
         <Menu.Item key="red" icon={<ArrowClockwise />} postfix="March, 2022">
           #16C7B3AE-000113-000113
         </Menu.Item>
-        <Menu.Item key="orange" icon={<NewspaperClipping />} postfix="Jan, 2022">
+        <Menu.Item
+          key="orange"
+          icon={<NewspaperClipping />}
+          postfix="Jan, 2022"
+        >
           #16C7B3AE
         </Menu.Item>
         <Menu.Item key="purple" icon={<Plus />} postfix="Feb, 2022">

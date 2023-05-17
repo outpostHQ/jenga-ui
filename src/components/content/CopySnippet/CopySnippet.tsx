@@ -1,9 +1,5 @@
 import { ReactNode, useState } from 'react';
-import {
-  Copy,
-  EyeSlash,
-  Eye,
-} from '@jengaicons/react';
+import { Copy, EyeSlash, Eye } from '@jengaicons/react';
 import copy from 'clipboard-copy';
 
 import { Action, Button } from '../../actions';
