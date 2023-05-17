@@ -1,10 +1,26 @@
 {
   "name": "jenga-ui",
-  "version": "0.3.0",
-  "description": "UIKit for outpost.run",
-  "module": "dist/es/index.js",
-  "main": "dist/cjs/index.js",
-  "types": "dist/types/index.d.ts",
+  "version": "0.4.0",
+  "description": "Responsive and Accessible React UI Components built with React and TastyCSS",
+  "keywords": [
+    "react",
+    "react-ui",
+    "Jenga-UI",
+    "Jenga UI",
+    "component-library",
+    "web components",
+    "reac-components",
+    "ui"
+  ],
+  "homepage": "https://github.com/Outposthq/jenga-ui",
+  "bugs": {
+    "url": "https://github.com/Outposthq/jenga-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Outposthq/jenga-ui.git"
+  },
+  "license": "MIT",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -12,6 +28,9 @@
       "require": "./dist/cjs/index.js"
     }
   },
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist/**/*.js",
     "dist/**/*.map",
@@ -43,16 +62,13 @@
     "release": "pnpm build && changeset publish",
     "postinstall": "git config blame.ignoreRevsFile .git-blame-ignore-revs"
   },
-  "publishConfig": {
-    "directory": "dist"
-  },
-  "keywords": [
-    "uikit"
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari major versions"
   ],
-  "peerDependencies": {
-    "react": ">= 17.0.0",
-    "react-dom": ">= 17.0.0",
-    "styled-components": ">= 5.3.0"
+  "resolutions": {
+    "@testing-library/user-event": "14.2.0"
   },
   "dependencies": {
     "@jengaicons/react": "^0.5.0",
@@ -110,8 +126,6 @@
     "@react-types/switch": "3.2.5",
     "@react-types/textfield": "3.6.2",
     "@react-types/tooltip": "3.2.5",
-    "@storybook/addon-docs": "^7.0.10",
-    "@storybook/react-vite": "^7.0.10",
     "clipboard-copy": "^4.0.1",
     "clsx": "^1.1.1",
     "email-validator": "^2.0.4",
@@ -120,10 +134,8 @@
     "react-is": "^17.0.0",
     "react-keyed-flatten-children": "^1.3.0",
     "react-transition-group": "^4.4.2",
-    "storybook": "^7.0.10",
     "tiny-invariant": "^1.3.1",
-    "valid-url": "^1.0.9",
-    "vite": "^4.3.5"
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "@actions/core": "^1.8.2",
@@ -139,12 +151,14 @@
     "@size-limit/webpack-why": "^8.2.4",
     "@statoscope/cli": "^5.20.1",
     "@storybook/addon-actions": "^7.0.10",
+    "@storybook/addon-docs": "^7.0.10",
     "@storybook/addon-essentials": "^7.0.10",
     "@storybook/addon-interactions": "^7.0.10",
     "@storybook/addon-links": "^7.0.10",
     "@storybook/addon-mdx-gfm": "^7.0.10",
     "@storybook/jest": "^0.1.0",
     "@storybook/react": "^7.0.10",
+    "@storybook/react-vite": "^7.0.10",
     "@storybook/testing-library": "^0.1.0",
     "@swc/core": "^1.3.36",
     "@swc/jest": "^0.2.24",
@@ -191,19 +205,20 @@
     "react-test-renderer": "^17.0.2",
     "rimraf": "^3.0.2",
     "size-limit": "^8.1.0",
+    "storybook": "^7.0.10",
     "storybook-addon-turbo-build": "^2.0.1",
     "styled-components": "^5.3.6",
     "swc-loader": "^0.2.3",
     "typescript": "^4.5.4",
+    "vite": "^4.3.5",
     "webpack": "^5.76.1"
   },
-  "resolutions": {
-    "@testing-library/user-event": "14.2.0"
+  "peerDependencies": {
+    "react": ">= 17.0.0",
+    "react-dom": ">= 17.0.0",
+    "styled-components": ">= 5.3.0"
   },
-  "browserslist": [
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Safari major versions"
-  ],
-  "license": "MIT"
+  "publishConfig": {
+    "directory": "dist"
+  }
 }
