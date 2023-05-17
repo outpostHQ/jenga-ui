@@ -1,9 +1,10 @@
 import { TableState, TableStateProps } from '@react-stately/table';
 import { GridNode } from '@react-types/grid';
-import { BaseProps, BasePropsWithoutChildren, Styles } from '../../../tasty';
 import { AriaTableProps } from '@react-aria/table';
-import { JengaCheckboxProps } from '../../forms/Checkbox/Checkbox';
 import { HTMLProps } from 'react';
+
+import { BaseProps, BasePropsWithoutChildren, Styles } from '../../../tasty';
+import { JengaCheckboxProps } from '../../forms/Checkbox/Checkbox';
 
 export type JengaTableElementBaseProps<T> = {
   item: GridNode<T>;

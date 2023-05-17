@@ -1,9 +1,10 @@
-import { mergeProps } from '../../../utils/react';
-import { useFocus } from '../../../utils/react/interactions';
 import { useRef } from 'react';
 import { useTableColumnHeader } from '@react-aria/table';
-import { Flex } from '../../layout/Flex';
 import { useHover } from '@react-aria/interactions';
+
+import { mergeProps } from '../../../utils/react';
+import { useFocus } from '../../../utils/react/interactions';
+import { Flex } from '../../layout/Flex';
 
 import { Th } from './TableElementsBase';
 import { JengaTableColumnHeaderProps } from './types';

@@ -1,8 +1,9 @@
 import { useContext, useRef } from 'react';
 import { useTableCell } from '@react-aria/table';
+import { useHover } from '@react-aria/interactions';
+
 import { mergeProps } from '../../../utils/react';
 import { useFocus } from '../../../utils/react/interactions';
-import { useHover } from '@react-aria/interactions';
 
 import { JengaTablePropsContext, Td } from './TableElementsBase';
 import { JengaTableElementBaseProps } from './types';

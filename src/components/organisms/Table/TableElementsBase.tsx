@@ -1,4 +1,3 @@
-import { JengaCheckboxProps } from '../../forms/Checkbox/Checkbox';
 import {
   createContext,
   // ForwardedRef,
@@ -8,6 +7,8 @@ import {
   Ref,
   // ReactElement,
 } from 'react';
+
+import { JengaCheckboxProps } from '../../forms/Checkbox/Checkbox';
 import {
   tasty,
   Element,

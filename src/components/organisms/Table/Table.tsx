@@ -1,7 +1,8 @@
 import { useTable } from '@react-aria/table';
 import { useTableState } from '@react-stately/table';
-import { useProviderProps } from '../../../provider';
 import { forwardRef, ReactElement, useRef } from 'react';
+
+import { useProviderProps } from '../../../provider';
 import { useCombinedRefs } from '../../../utils/react';
 
 import { TableBase, TableWrapper } from './TableElementsBase';

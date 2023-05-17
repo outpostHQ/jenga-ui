@@ -1,10 +1,11 @@
-import { Checkbox } from '../../forms/Checkbox/Checkbox';
 import {
   useTableColumnHeader,
   useTableSelectAllCheckbox,
 } from '@react-aria/table';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { useContext, useRef } from 'react';
+
+import { Checkbox } from '../../forms/Checkbox/Checkbox';
 
 import { JengaTablePropsContext, Th } from './TableElementsBase';
 import { JengaTableElementBaseProps } from './types';

@@ -1,4 +1,5 @@
 import { useTableRowGroup } from '@react-aria/table';
+
 import { AllBaseProps, tasty } from '../../../tasty';
 
 const Element = tasty({});

@@ -1,11 +1,12 @@
 import { ColumnProps, CellProps, RowProps } from '@react-stately/table';
-import { BasePropsWithoutChildren, Styles } from '../../../tasty';
 import { Column as _Column } from '@react-stately/table';
 import { Cell as _Cell } from '@react-stately/table';
 import { Row as _Row } from '@react-stately/table';
 import { TableBody as _TableBody } from '@react-stately/table';
 import { TableHeader as _TableHeader } from '@react-stately/table';
 import { HTMLProps } from 'react';
+
+import { BasePropsWithoutChildren, Styles } from '../../../tasty';
 export const TableHeader = _TableHeader;
 export const TableBody = _TableBody;
 export const Row = _Row as (

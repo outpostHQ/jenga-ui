@@ -1,7 +1,8 @@
 import { useTableSelectionCheckbox } from '@react-aria/table';
-import { Checkbox } from '../../forms/Checkbox/Checkbox';
 import { useTableCell } from '@react-aria/table';
 import { useContext, useRef } from 'react';
+
+import { Checkbox } from '../../forms/Checkbox/Checkbox';
 
 import { JengaTablePropsContext, Td } from './TableElementsBase';
 import { JengaTableCheckboxCellProps } from './types';
