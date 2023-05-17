@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { CheckOutlined } from '@ant-design/icons';
+import { Check } from '@jengaicons/react';
 
 import { Button, JengaButtonProps } from '../../actions';
 import { Text } from '../../content/Text';
@@ -93,7 +93,7 @@ export type MenuButtonProps = {
 const getSelectionTypeIcon = (selectionIcon?: MenuSelectionType) => {
   switch (selectionIcon) {
     case 'checkbox':
-      return <CheckOutlined />;
+      return <Check />;
     case 'radio':
       return <RadioIcon />;
     default:

@@ -1,8 +1,4 @@
-import {
-  CheckOutlined,
-  LoadingOutlined,
-  WarningOutlined,
-} from '@ant-design/icons';
+import { Check, CircleNotch, Warning } from '@jengaicons/react';
 import {
   cloneElement,
   ForwardedRef,
@@ -294,12 +290,12 @@ export const ComboBox = forwardRef(function ComboBox<T extends object>(
   let isInvalid = validationState === 'invalid';
 
   let validationIcon = isInvalid ? (
-    <WarningOutlined
+    <Warning
       data-element="ValidationIcon"
       style={{ color: 'var(--danger-color)' }}
     />
   ) : (
-    <CheckOutlined
+    <Check
       data-element="ValidationIcon"
       style={{ color: 'var(--success-color)' }}
     />
@@ -371,7 +367,7 @@ export const ComboBox = forwardRef(function ComboBox<T extends object>(
         {validationState || isLoading ? (
           <>
             {validationState && !isLoading ? validation : null}
-            {isLoading ? <LoadingOutlined /> : null}
+            {isLoading ? <CircleNotch /> : null}
           </>
         ) : null}
         {suffixPosition === 'after' ? suffix : null}

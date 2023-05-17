@@ -1,4 +1,4 @@
-import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import { CaretDown, CaretUp } from '@jengaicons/react';
 
 import { Button } from '../../actions';
 import { Styles } from '../../../tasty';
@@ -36,9 +36,9 @@ export function StepButton(props) {
       styles={STEP_BUTTON_STYLES}
       icon={
         props.direction === 'up' ? (
-          <CaretUpOutlined style={{ fontSize: 'var(--icon-size)' }} />
+          <CaretUp style={{ fontSize: 'var(--icon-size)' }} />
         ) : (
-          <CaretDownOutlined style={{ fontSize: 'var(--icon-size)' }} />
+          <CaretDown style={{ fontSize: 'var(--icon-size)' }} />
         )
       }
       mods={{

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import {
-  BulbOutlined,
-  CheckCircleFilled,
-  MoreOutlined,
-  ReloadOutlined,
-  BookOutlined,
-  PlusOutlined,
-} from '@ant-design/icons';
+  Lightbulb,
+  CheckCircleFill,
+  DotsThreeOutlineVertical,
+  ArrowClockwise,
+  NewspaperClipping,
+  Plus,
+} from '@jengaicons/react';
 import { action } from '@storybook/addon-actions';
 import { expect } from '@storybook/jest';
 import { userEvent, waitFor, within } from '@storybook/testing-library';
@@ -86,7 +86,7 @@ export const Default = ({ ...props }) => {
       <MenuTrigger>
         <Button
           size="small"
-          icon={<MoreOutlined />}
+          icon={<DotsThreeOutlineVertical />}
           aria-label="Open Context Menu"
         />
         {menu}
@@ -103,7 +103,7 @@ export const InsideModal = () => {
           <MenuTrigger>
             <Button
               size="small"
-              icon={<MoreOutlined />}
+              icon={<DotsThreeOutlineVertical />}
               qa="ContextMenuButton"
               aria-label="Open Context Menu"
             />
@@ -185,12 +185,12 @@ StyledSectionsAndItems.args = {
 export const GitActions = (props) => {
   const bulbIcon = (
     <Text>
-      <BulbOutlined />
+      <Lightbulb />
     </Text>
   );
   const successIcon = (
     <Text color="#success">
-      <CheckCircleFilled />
+      <CheckCircleFill />
     </Text>
   );
   const stuffText = (
@@ -345,16 +345,20 @@ export const ItemCustomIcons = (props) => {
         header="Custom Icons"
         onSelectionChange={onSelectionChange}
       >
-        <Menu.Item key="red" icon={<ReloadOutlined />} postfix="March, 2022">
+        <Menu.Item key="red" icon={<ArrowClockwise />} postfix="March, 2022">
           #16C7B3AE-000113-000113
         </Menu.Item>
-        <Menu.Item key="orange" icon={<BookOutlined />} postfix="Jan, 2022">
+        <Menu.Item
+          key="orange"
+          icon={<NewspaperClipping />}
+          postfix="Jan, 2022"
+        >
           #16C7B3AE
         </Menu.Item>
-        <Menu.Item key="purple" icon={<PlusOutlined />} postfix="Feb, 2022">
+        <Menu.Item key="purple" icon={<Plus />} postfix="Feb, 2022">
           #16C7B3AE
         </Menu.Item>
-        <Menu.Item key="yellow" icon={<ReloadOutlined />} postfix="July, 2022">
+        <Menu.Item key="yellow" icon={<ArrowClockwise />} postfix="July, 2022">
           #16C7B3AE
         </Menu.Item>
       </Menu>
@@ -386,7 +390,7 @@ export const ItemWithTooltip = (props) => {
               {item}
             </TooltipProvider>
           )}
-          icon={<ReloadOutlined />}
+          icon={<ArrowClockwise />}
         >
           #16C7B3AE-000113-000113
         </Menu.Item>
@@ -397,7 +401,7 @@ export const ItemWithTooltip = (props) => {
               {item}
             </TooltipProvider>
           )}
-          icon={<BookOutlined />}
+          icon={<NewspaperClipping />}
         >
           #16C7B3AE
         </Menu.Item>

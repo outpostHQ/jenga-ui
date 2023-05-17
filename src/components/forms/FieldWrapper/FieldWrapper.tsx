@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { Info } from '@jengaicons/react';
 
 import { Paragraph } from '../../content/Paragraph';
 import { tasty } from '../../../tasty';
@@ -120,7 +120,7 @@ export const FieldWrapper = forwardRef(function FieldWrapper(
               title={tooltip}
               width="initial max-content 40x"
             >
-              <InfoCircleOutlined
+              <Info
                 style={{
                   color: 'var(--primary-color)',
                   margin: '0 4px',

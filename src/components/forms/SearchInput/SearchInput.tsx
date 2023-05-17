@@ -1,5 +1,5 @@
 import { forwardRef, useRef } from 'react';
-import { CloseOutlined, SearchOutlined } from '@ant-design/icons';
+import { X, MagnifyingGlass } from '@jengaicons/react';
 import { useSearchFieldState } from '@react-stately/searchfield';
 import { useSearchField } from '@react-aria/searchfield';
 
@@ -22,7 +22,7 @@ export interface JengaSearchInputProps extends JengaTextInputBaseProps {
 }
 
 const ClearButton = tasty(Button, {
-  icon: <CloseOutlined />,
+  icon: <X />,
   styles: {
     radius: 'right (1r - 1bw)',
     width: '4x',
@@ -52,7 +52,7 @@ export const SearchInput = forwardRef(function SearchInput(
       inputProps={inputProps}
       inputRef={inputRef}
       type="search"
-      icon={<SearchOutlined />}
+      icon={<MagnifyingGlass />}
       suffixPosition="after"
       {...props}
       suffix={

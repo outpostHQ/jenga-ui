@@ -1,4 +1,4 @@
-import { CopyOutlined } from '@ant-design/icons';
+import { Copy } from '@jengaicons/react';
 
 import { render, screen } from '../../../test';
 
@@ -45,7 +45,7 @@ describe('<Button />', () => {
 
   it.each([
     ['none', {}],
-    ['icon', { icon: <CopyOutlined /> }],
+    ['icon', { icon: <Copy /> }],
   ])(`should warn if %s specified`, (_, value) => {
     const spy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
@@ -63,18 +63,18 @@ describe('<Button />', () => {
     ['children', { children: 'test' }],
     ['aria-label and children', { 'aria-label': 'test', children: 'test' }],
     ['label and children', { label: 'test', children: 'test' }],
-    ['icon and children', { icon: <CopyOutlined />, children: 'test' }],
-    ['icon and label', { icon: <CopyOutlined />, label: 'test' }],
-    ['icon and aria-label', { icon: <CopyOutlined />, 'aria-label': 'test' }],
+    ['icon and children', { icon: <Copy />, children: 'test' }],
+    ['icon and label', { icon: <Copy />, label: 'test' }],
+    ['icon and aria-label', { icon: <Copy />, 'aria-label': 'test' }],
     // prettier-ignore
-    ['icon and aria-labelledby', { icon: <CopyOutlined />, 'aria-labelledby': 'test' }],
+    ['icon and aria-labelledby', { icon: <Copy />, 'aria-labelledby': 'test' }],
     // prettier-ignore
-    ['rightIcon and children', { rightIcon: <CopyOutlined />, children: 'test' }],
-    ['rightIcon and label', { rightIcon: <CopyOutlined />, label: 'test' }],
+    ['rightIcon and children', { rightIcon: <Copy />, children: 'test' }],
+    ['rightIcon and label', { rightIcon: <Copy />, label: 'test' }],
     // prettier-ignore
-    ['rightIcon and aria-label', { rightIcon: <CopyOutlined />, 'aria-label': 'test' }],
+    ['rightIcon and aria-label', { rightIcon: <Copy />, 'aria-label': 'test' }],
     // prettier-ignore
-    ['rightIcon and aria-labelledby', { rightIcon: <CopyOutlined />, 'aria-labelledby': 'test' }],
+    ['rightIcon and aria-labelledby', { rightIcon: <Copy />, 'aria-labelledby': 'test' }],
   ])('should not warn if %s is provided', (_, value) => {
     const spy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 

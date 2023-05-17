@@ -1,8 +1,4 @@
-import {
-  CheckOutlined,
-  LoadingOutlined,
-  WarningOutlined,
-} from '@ant-design/icons';
+import { Check, CircleNotch, Warning } from '@jengaicons/react';
 import { createFocusableRef } from '@react-spectrum/utils';
 import {
   cloneElement,
@@ -290,12 +286,12 @@ function TextInputBase(props: JengaTextInputBaseProps, ref) {
   let isInvalid = validationState === 'invalid';
 
   let validationIcon = isInvalid ? (
-    <WarningOutlined
+    <Warning
       data-element="ValidationIcon"
       style={{ color: 'var(--danger-color)' }}
     />
   ) : (
-    <CheckOutlined
+    <Check
       data-element="ValidationIcon"
       style={{ color: 'var(--success-color)' }}
     />
@@ -392,7 +388,7 @@ function TextInputBase(props: JengaTextInputBaseProps, ref) {
           {(validationState && !isLoading) || isLoading ? (
             <div data-element="State">
               {validationState && !isLoading ? validation : null}
-              {isLoading && <LoadingOutlined data-element="InputIcon" />}
+              {isLoading && <CircleNotch data-element="InputIcon" />}
             </div>
           ) : null}
           {suffixPosition === 'after' ? suffix : null}

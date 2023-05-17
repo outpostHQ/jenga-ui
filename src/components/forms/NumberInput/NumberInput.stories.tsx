@@ -1,4 +1,4 @@
-import { DollarCircleOutlined } from '@ant-design/icons';
+import { CurrencyCircleDollar } from '@jengaicons/react';
 
 import { baseProps } from '../../../stories/lists/baseProps';
 import { NUMBER_VALUE_ARG } from '../../../stories/FormFieldArgs';
@@ -20,7 +20,7 @@ export default {
 
 const Template = ({ icon, ...props }) => (
   <NumberInput
-    prefix={icon ? <DollarCircleOutlined /> : null}
+    prefix={icon ? <CurrencyCircleDollar /> : null}
     {...props}
     onChange={(query) => console.log('change', query)}
   />

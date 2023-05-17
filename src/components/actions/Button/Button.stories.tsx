@@ -1,4 +1,4 @@
-import { CaretDownOutlined, DollarCircleOutlined } from '@ant-design/icons';
+import { CaretDown, CurrencyCircleDollar } from '@jengaicons/react';
 
 import { baseProps } from '../../../stories/lists/baseProps';
 import { Space } from '../../layout/Space';
@@ -43,8 +43,8 @@ const Template = ({ icon, rightIcon, label, onClick, ...props }) => (
     fill={props.theme === 'special' ? '#dark' : undefined}
   >
     <Button
-      icon={icon ? <DollarCircleOutlined /> : undefined}
-      rightIcon={rightIcon ? <CaretDownOutlined /> : undefined}
+      icon={icon ? <CurrencyCircleDollar /> : undefined}
+      rightIcon={rightIcon ? <CaretDown /> : undefined}
       {...props}
       onPress={(e) => console.log('Press', e)}
     >
@@ -56,24 +56,24 @@ const Template = ({ icon, rightIcon, label, onClick, ...props }) => (
 const TemplateSizes = ({ label, icon, rightIcon, size, ...props }) => (
   <Space>
     <Button
-      icon={icon ? <DollarCircleOutlined /> : undefined}
-      rightIcon={rightIcon ? <CaretDownOutlined /> : undefined}
+      icon={icon ? <CurrencyCircleDollar /> : undefined}
+      rightIcon={rightIcon ? <CaretDown /> : undefined}
       {...props}
       size="small"
     >
       {label}
     </Button>
     <Button
-      icon={icon ? <DollarCircleOutlined /> : undefined}
-      rightIcon={rightIcon ? <CaretDownOutlined /> : undefined}
+      icon={icon ? <CurrencyCircleDollar /> : undefined}
+      rightIcon={rightIcon ? <CaretDown /> : undefined}
       {...props}
       size="medium"
     >
       {label}
     </Button>
     <Button
-      icon={icon ? <DollarCircleOutlined /> : undefined}
-      rightIcon={rightIcon ? <CaretDownOutlined /> : undefined}
+      icon={icon ? <CurrencyCircleDollar /> : undefined}
+      rightIcon={rightIcon ? <CaretDown /> : undefined}
       {...props}
       size="large"
     >

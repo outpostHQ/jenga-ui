@@ -3,7 +3,7 @@ import { useFocusableRef } from '@react-spectrum/utils';
 import { useSwitch } from '@react-aria/switch';
 import { useHover } from '@react-aria/interactions';
 import { useToggleState } from '@react-stately/toggle';
-import { LoadingOutlined } from '@ant-design/icons';
+import { CircleNotch } from '@jengaicons/react';
 
 import { useProviderProps } from '../../../provider';
 import {
@@ -267,7 +267,7 @@ function Switch(props: WithNullableSelected<JengaSwitchProps>, ref) {
           {isLoading ? (
             <>
               {label ? <>&nbsp;</> : null}
-              <LoadingOutlined />
+              <CircleNotch />
             </>
           ) : null}
         </Element>

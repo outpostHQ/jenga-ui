@@ -4,7 +4,7 @@ import { DismissButton } from '@react-aria/overlays';
 import { forwardRef, ReactElement } from 'react';
 import { useDialog } from '@react-aria/dialog';
 import { useMessageFormatter } from '@react-aria/i18n';
-import { CloseOutlined } from '@ant-design/icons';
+import { X } from '@jengaicons/react';
 import { DOMRef } from '@react-types/shared';
 import FocusLock from 'react-focus-lock';
 
@@ -256,7 +256,7 @@ const DialogContent = forwardRef(function DialogContent(
             qa="ModalCloseButton"
             type="neutral"
             styles={CLOSE_BUTTON_STYLES}
-            icon={closeIcon || <CloseOutlined />}
+            icon={closeIcon || <X />}
             label={formatMessage('dismiss')}
             onPress={() => onDismiss && onDismiss()}
           />

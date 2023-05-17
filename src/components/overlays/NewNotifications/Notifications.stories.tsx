@@ -2,7 +2,7 @@ import { Key, useRef, useState } from 'react';
 import { expect } from '@storybook/jest';
 import { userEvent, within } from '@storybook/testing-library';
 import { Meta, Story } from '@storybook/react';
-import { BellFilled, BellOutlined, WechatFilled } from '@ant-design/icons';
+import { BellFill, Bell, ChatFill } from '@jengaicons/react';
 
 import { Button } from '../../actions';
 import { Flex } from '../../layout/Flex';
@@ -99,15 +99,15 @@ export const WithIcon: Story<JengaNotificationProps> = (args) => {
       <NotificationView
         {...args}
         header=""
-        icon={<BellOutlined style={{ display: 'flex', alignSelf: 'center' }} />}
+        icon={<Bell style={{ display: 'flex', alignSelf: 'center' }} />}
       />
       <NotificationView
         {...args}
-        icon={<BellOutlined style={{ display: 'flex', alignSelf: 'center' }} />}
+        icon={<Bell style={{ display: 'flex', alignSelf: 'center' }} />}
       />
       <NotificationView
         {...args}
-        icon={<BellOutlined style={{ display: 'flex', alignSelf: 'center' }} />}
+        icon={<Bell style={{ display: 'flex', alignSelf: 'center' }} />}
         header=""
         actions={
           <>
@@ -182,7 +182,7 @@ List.args = {
 export const NotificationsInModal: Story<JengaNotificationProps> = (args) => {
   return (
     <NotificationsDialogTrigger>
-      <Button icon={<BellFilled />} type="clear" label="Open Notifications" />
+      <Button icon={<BellFill />} type="clear" label="Open Notifications" />
 
       <NotificationsDialog>
         <NotificationsList
@@ -310,7 +310,6 @@ export const ComplexInteraction: Story<JengaNotificationProps> = (args) => {
         alignItems="center"
         justifyContent="space-between"
       >
-
         <NotificationsDialogTrigger
           onCloseNotificationInBar={(props) => {
             setNotifications((current) => [
@@ -319,11 +318,7 @@ export const ComplexInteraction: Story<JengaNotificationProps> = (args) => {
             ]);
           }}
         >
-          <Button
-            icon={<BellOutlined />}
-            type="clear"
-            label="Open Notifications"
-          />
+          <Button icon={<Bell />} type="clear" label="Open Notifications" />
 
           <NotificationsDialog>
             {notifications.length > 0 ? (
@@ -433,7 +428,7 @@ export const WithWidget: Story<JengaNotificationProps> = (args) => (
   <>
     <ActionTemplate {...args} />
     <Button
-      icon={<WechatFilled />}
+      icon={<ChatFill />}
       size="large"
       style={{
         zIndex: 2147483000,

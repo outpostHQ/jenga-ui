@@ -1,9 +1,5 @@
 import { ReactNode, useState } from 'react';
-import {
-  CopyOutlined,
-  EyeInvisibleOutlined,
-  EyeOutlined,
-} from '@ant-design/icons';
+import { Copy, EyeSlash, Eye } from '@jengaicons/react';
 import copy from 'clipboard-copy';
 
 import { Action, Button } from '../../actions';
@@ -111,7 +107,7 @@ const ActionButton = tasty(Button, {
 });
 
 const CopyButton = tasty(ActionButton, {
-  icon: <CopyOutlined />,
+  icon: <Copy />,
   'aria-label': 'Copy to clipboard',
   styles: {
     radius: {
@@ -238,7 +234,7 @@ function CopySnippet(allProps: JengaCopySnippetProps) {
           {actions}
           {hideText && (
             <ShowButton
-              icon={showHidden ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+              icon={showHidden ? <EyeSlash /> : <Eye />}
               mods={{ multiline, withScroll: showScroll }}
               onPress={() => setShowHidden(!showHidden)}
             />

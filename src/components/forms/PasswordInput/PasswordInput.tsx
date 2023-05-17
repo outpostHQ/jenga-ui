@@ -1,6 +1,6 @@
 import { forwardRef, useCallback, useRef, useState } from 'react';
 import { useTextField } from '@react-aria/textfield';
-import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import { EyeSlash, Eye } from '@jengaicons/react';
 
 import {
   JengaTextInputBaseProps,
@@ -53,7 +53,7 @@ function PasswordInput(props: WithNullableValue<JengaTextInputBaseProps>, ref) {
         radius="right"
         width="4x"
         label="Toggle masking"
-        icon={type === 'password' ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+        icon={type === 'password' ? <EyeSlash /> : <Eye />}
         onPress={toggleType}
       />
     </>
