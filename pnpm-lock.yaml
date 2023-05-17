@@ -64,6 +64,9 @@ dependencies:
   '@react-aria/switch':
     specifier: 3.3.1
     version: 3.3.1(react@17.0.2)
+  '@react-aria/table':
+    specifier: ^3.9.0
+    version: 3.9.0(react-dom@17.0.2)(react@17.0.2)
   '@react-aria/textfield':
     specifier: 3.8.1
     version: 3.8.1(react@17.0.2)
@@ -88,6 +91,9 @@ dependencies:
   '@react-stately/combobox':
     specifier: 3.3.1
     version: 3.3.1(react@17.0.2)
+  '@react-stately/data':
+    specifier: ^3.9.1
+    version: 3.9.1(react@17.0.2)
   '@react-stately/list':
     specifier: 3.6.1
     version: 3.6.1(react@17.0.2)
@@ -115,6 +121,9 @@ dependencies:
   '@react-stately/slider':
     specifier: 3.2.4
     version: 3.2.4(react@17.0.2)
+  '@react-stately/table':
+    specifier: ^3.9.0
+    version: 3.9.0(react@17.0.2)
   '@react-stately/toggle':
     specifier: 3.4.4
     version: 3.4.4(react@17.0.2)
@@ -139,6 +148,9 @@ dependencies:
   '@react-types/dialog':
     specifier: 3.4.5
     version: 3.4.5(react@17.0.2)
+  '@react-types/grid':
+    specifier: ^3.1.7
+    version: 3.1.7(react@17.0.2)
   '@react-types/menu':
     specifier: 3.7.3
     version: 3.7.3(react@17.0.2)
@@ -3226,6 +3238,30 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@react-aria/grid@3.7.0(react-dom@17.0.2)(react@17.0.2):
+    resolution: {integrity: sha512-jXo+/wQotHDSaMSVdVT7Hxzz65Nj2yK1wssIUQPEZalRhcosGWI1vhdQOD0g9GQL1l5DLyw0m55sych6naeBlw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.12.0(react@17.0.2)
+      '@react-aria/i18n': 3.7.1(react@17.0.2)
+      '@react-aria/interactions': 3.15.0(react@17.0.2)
+      '@react-aria/live-announcer': 3.3.0
+      '@react-aria/selection': 3.14.0(react@17.0.2)
+      '@react-aria/utils': 3.16.0(react@17.0.2)
+      '@react-stately/collections': 3.7.0(react@17.0.2)
+      '@react-stately/grid': 3.6.0(react@17.0.2)
+      '@react-stately/selection': 3.13.0(react@17.0.2)
+      '@react-stately/virtualizer': 3.5.1(react@17.0.2)
+      '@react-types/checkbox': 3.4.3(react@17.0.2)
+      '@react-types/grid': 3.1.7(react@17.0.2)
+      '@react-types/shared': 3.18.0(react@17.0.2)
+      '@swc/helpers': 0.4.14
+      react: 17.0.2
+      react-dom: 17.0.2(react@17.0.2)
+    dev: false
+
   /@react-aria/i18n@3.6.3(react@17.0.2):
     resolution: {integrity: sha512-cDWl8FXJIXsw/raWcThywBueCJ5ncoogq81wYVS6hfZVmSyncONIB3bwUL12cojmjX1VEP31sN0ujT/83QP95Q==}
     peerDependencies:
@@ -3455,6 +3491,22 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@react-aria/selection@3.14.0(react@17.0.2):
+    resolution: {integrity: sha512-4/cq3mP75/qbhz2OkWmrfL6MJ+7+KfFsT6wvVNvxgOWR0n4jivHToKi3DXo2TzInvNU+10Ha7FCWavZoUNgSlA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.12.0(react@17.0.2)
+      '@react-aria/i18n': 3.7.1(react@17.0.2)
+      '@react-aria/interactions': 3.15.0(react@17.0.2)
+      '@react-aria/utils': 3.16.0(react@17.0.2)
+      '@react-stately/collections': 3.7.0(react@17.0.2)
+      '@react-stately/selection': 3.13.0(react@17.0.2)
+      '@react-types/shared': 3.18.0(react@17.0.2)
+      '@swc/helpers': 0.4.14
+      react: 17.0.2
+    dev: false
+
   /@react-aria/separator@3.2.6(react@17.0.2):
     resolution: {integrity: sha512-QhYqoLfu+4T3ASCs5Q8ZWfBbRKBUmqquVdREWvHyvVyOBk9kRN9nxsoIxlkss1RJlJJx59AYF9T9CwgL80/bvw==}
     peerDependencies:
@@ -3529,6 +3581,32 @@ packages:
       '@react-types/switch': 3.2.5(react@17.0.2)
       '@swc/helpers': 0.4.14
       react: 17.0.2
+    dev: false
+
+  /@react-aria/table@3.9.0(react-dom@17.0.2)(react@17.0.2):
+    resolution: {integrity: sha512-hY1tM7NRjP+gRvm2OGgWeEZ8An0tzljj0O19JCg7oi6IpypFJqeSqSUQml1OIv5wbZ04pQnoYGtMkP7h7YqkPw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.12.0(react@17.0.2)
+      '@react-aria/grid': 3.7.0(react-dom@17.0.2)(react@17.0.2)
+      '@react-aria/i18n': 3.7.1(react@17.0.2)
+      '@react-aria/interactions': 3.15.0(react@17.0.2)
+      '@react-aria/live-announcer': 3.3.0
+      '@react-aria/selection': 3.14.0(react@17.0.2)
+      '@react-aria/utils': 3.16.0(react@17.0.2)
+      '@react-aria/visually-hidden': 3.8.0(react@17.0.2)
+      '@react-stately/collections': 3.7.0(react@17.0.2)
+      '@react-stately/table': 3.9.0(react@17.0.2)
+      '@react-stately/virtualizer': 3.5.1(react@17.0.2)
+      '@react-types/checkbox': 3.4.3(react@17.0.2)
+      '@react-types/grid': 3.1.7(react@17.0.2)
+      '@react-types/shared': 3.18.0(react@17.0.2)
+      '@react-types/table': 3.6.0(react@17.0.2)
+      '@swc/helpers': 0.4.14
+      react: 17.0.2
+      react-dom: 17.0.2(react@17.0.2)
     dev: false
 
   /@react-aria/textfield@3.8.1(react@17.0.2):
@@ -3615,6 +3693,19 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@react-aria/visually-hidden@3.8.0(react@17.0.2):
+    resolution: {integrity: sha512-Ox7VcO8vfdA1rCHPcUuP9DWfCI9bNFVlvN/u66AfjwBLH40MnGGdob5hZswQnbxOY4e0kwkMQDmZwNPYzBQgsg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/interactions': 3.15.0(react@17.0.2)
+      '@react-aria/utils': 3.16.0(react@17.0.2)
+      '@react-types/shared': 3.18.0(react@17.0.2)
+      '@swc/helpers': 0.4.14
+      clsx: 1.1.1
+      react: 17.0.2
+    dev: false
+
   /@react-spectrum/utils@3.8.1(react@17.0.2):
     resolution: {integrity: sha512-cqXxJUNgoixCjOa9N6C+079goQz+66i9wBceMqlzMDXMVpSKWxmn2gGXOyWratayfZvDVINpn7FtX2dN/eEp+w==}
     peerDependencies:
@@ -3673,6 +3764,16 @@ packages:
       '@react-stately/utils': 3.5.2(react@17.0.2)
       '@react-types/combobox': 3.5.5(react@17.0.2)
       '@react-types/shared': 3.16.0(react@17.0.2)
+      '@swc/helpers': 0.4.14
+      react: 17.0.2
+    dev: false
+
+  /@react-stately/data@3.9.1(react@17.0.2):
+    resolution: {integrity: sha512-UClgI8jQTF3hVR/WLa2ht7Gjd2x2PRnYycDmfY+mfbd+ONBD7rX/m3KWGgrR8AvO05qSpQoSlab8D+cfLXvgWA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.18.0(react@17.0.2)
       '@swc/helpers': 0.4.14
       react: 17.0.2
     dev: false
