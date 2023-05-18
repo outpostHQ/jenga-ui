@@ -1,7 +1,7 @@
 import { memo, ReactNode } from 'react';
+import { Warning, CheckCircle, WarningCircle } from '@jengaicons/react';
 
 import { tasty } from '../../../../tasty';
-import { Warning, CheckCircle, WarningCircle } from '@jengaicons/react';
 
 import { NotificationIconProps } from './types';
 

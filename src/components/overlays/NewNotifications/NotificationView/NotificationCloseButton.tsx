@@ -1,8 +1,8 @@
 import { memo } from 'react';
+import { X } from '@jengaicons/react';
 
 import { Button } from '../../../actions';
 import { tasty } from '../../../../tasty';
-import { X } from '@jengaicons/react';
 
 export type NotificationCloseButtonProps = {
   onPress: () => void;
