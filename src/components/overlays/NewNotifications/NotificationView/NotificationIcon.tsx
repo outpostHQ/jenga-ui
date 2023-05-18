@@ -1,7 +1,7 @@
 import { memo, ReactNode } from 'react';
 
 import { tasty } from '../../../../tasty';
-import { Danger, Success, Attention } from '../../../../icons';
+import { Warning, CheckCircle, WarningCircle } from '@jengaicons/react';
 
 import { NotificationIconProps } from './types';
 
@@ -73,7 +73,7 @@ export const NotificationIcon = memo(function NotificationIcon(
 });
 
 const iconsByType: Record<NotificationIconProps['type'], ReactNode> = {
-  attention: <Attention />,
-  success: <Success />,
-  danger: <Danger />,
+  attention: <WarningCircle />,
+  success: <CheckCircle />,
+  danger: <Warning />,
 };
