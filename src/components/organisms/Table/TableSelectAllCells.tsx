@@ -13,6 +13,7 @@ import { JengaTableElementBaseProps } from './types';
 export function TableSelectAllCell<T>(props: JengaTableElementBaseProps<T>) {
   const { state, item: column, ...otherProps } = props;
   let ref = useRef(null);
+  // @ts-ignore
   let isSingleSelectionMode = state.selectionManager.selectionMode === 'single';
   let { columnHeaderProps } = useTableColumnHeader(
     { node: column },

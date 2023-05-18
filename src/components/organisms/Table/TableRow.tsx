@@ -26,6 +26,7 @@ export function TableRow<T>(
     rowStyles,
   } = useContext(JengaTablePropsContext);
   let ref = useRef(null);
+  // @ts-ignore
   let isSelected = state.selectionManager.isSelected(item.key);
   let { rowProps, isPressed } = useTableRow(
     {
