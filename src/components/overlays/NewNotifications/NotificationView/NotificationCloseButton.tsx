@@ -1,15 +1,15 @@
 import { memo } from 'react';
+import { X } from '@jengaicons/react';
 
 import { Button } from '../../../actions';
 import { tasty } from '../../../../tasty';
-import { Cross } from '../../../../icons';
 
 export type NotificationCloseButtonProps = {
   onPress: () => void;
 };
 
 const CloseButton = tasty(Button, {
-  icon: <Cross />,
+  icon: <X />,
   label: 'Close the notification',
   qa: 'NotificationCloseButton',
   type: 'neutral',
