@@ -65,7 +65,7 @@ dependencies:
     specifier: 3.3.1
     version: 3.3.1(react@17.0.2)
   '@react-aria/table':
-    specifier: ^3.9.0
+    specifier: ^3.5.0
     version: 3.9.0(react-dom@17.0.2)(react@17.0.2)
   '@react-aria/textfield':
     specifier: 3.8.1
@@ -92,7 +92,7 @@ dependencies:
     specifier: 3.3.1
     version: 3.3.1(react@17.0.2)
   '@react-stately/data':
-    specifier: ^3.9.1
+    specifier: ^3.7.0
     version: 3.9.1(react@17.0.2)
   '@react-stately/list':
     specifier: 3.6.1
@@ -122,7 +122,7 @@ dependencies:
     specifier: 3.2.4
     version: 3.2.4(react@17.0.2)
   '@react-stately/table':
-    specifier: ^3.9.0
+    specifier: ^3.5.0
     version: 3.9.0(react@17.0.2)
   '@react-stately/toggle':
     specifier: 3.4.4
@@ -149,7 +149,7 @@ dependencies:
     specifier: 3.4.5
     version: 3.4.5(react@17.0.2)
   '@react-types/grid':
-    specifier: ^3.1.7
+    specifier: ^3.1.4
     version: 3.1.7(react@17.0.2)
   '@react-types/menu':
     specifier: 3.7.3

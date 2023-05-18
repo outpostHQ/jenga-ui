@@ -1,4 +1,4 @@
-import { CaretDown, CurrencyCircleDollar } from '@jengaicons/react';
+import { CaretDownFill, CurrencyCircleDollar } from '@jengaicons/react';
 
 import { baseProps } from '../../../stories/lists/baseProps';
 import { Space } from '../../layout/Space';
@@ -44,7 +44,7 @@ const Template = ({ icon, rightIcon, label, onClick, ...props }) => (
   >
     <Button
       icon={icon ? <CurrencyCircleDollar /> : undefined}
-      rightIcon={rightIcon ? <CaretDown /> : undefined}
+      rightIcon={rightIcon ? <CaretDownFill /> : undefined}
       {...props}
       onPress={(e) => console.log('Press', e)}
     >
@@ -57,7 +57,7 @@ const TemplateSizes = ({ label, icon, rightIcon, size, ...props }) => (
   <Space>
     <Button
       icon={icon ? <CurrencyCircleDollar /> : undefined}
-      rightIcon={rightIcon ? <CaretDown /> : undefined}
+      rightIcon={rightIcon ? <CaretDownFill /> : undefined}
       {...props}
       size="small"
     >
@@ -65,7 +65,7 @@ const TemplateSizes = ({ label, icon, rightIcon, size, ...props }) => (
     </Button>
     <Button
       icon={icon ? <CurrencyCircleDollar /> : undefined}
-      rightIcon={rightIcon ? <CaretDown /> : undefined}
+      rightIcon={rightIcon ? <CaretDownFill /> : undefined}
       {...props}
       size="medium"
     >
@@ -73,7 +73,7 @@ const TemplateSizes = ({ label, icon, rightIcon, size, ...props }) => (
     </Button>
     <Button
       icon={icon ? <CurrencyCircleDollar /> : undefined}
-      rightIcon={rightIcon ? <CaretDown /> : undefined}
+      rightIcon={rightIcon ? <CaretDownFill /> : undefined}
       {...props}
       size="large"
     >
