@@ -54,29 +54,26 @@ export const INPUT_WRAPPER_STYLES: Styles = {
   gridColumns: 'auto 1fr auto',
   placeItems: 'stretch',
   fill: {
-    '': '#white',
-    disabled: '#dark.04',
+    '': '#op-surface',
   },
   border: {
-    '': true,
+    '': '#op-border',
     focused: true,
-    valid: '#success-text.50',
-    invalid: '#danger-text.50',
-    disabled: true,
+    valid: '#op-border-success',
+    invalid: '#op-border-critical',
   },
   outline: {
-    '': '#purple-03.0',
-    focused: '#purple-03',
-    'invalid & focused': '#danger.50',
-    'valid & focused': '#success.50',
+    '': '#clear',
+    focused: '#op-border-focus',
+    'invalid & focused': '#op-border-critical',
+    'valid & focused': '#op-border-success',
   },
-  radius: true,
-  cursor: 'text',
+  radius: '1x',
+  cursor: { '': 'text', disabled: 'not-allowed' },
   color: {
-    '': '#dark.85',
-    focused: '#dark.85',
-    invalid: '#danger-text',
-    disabled: '#dark.30',
+    '': '#op-text',
+    focused: '#op-text',
+    invalid: '#op-text-critical',
   },
   zIndex: {
     '': 'initial',
@@ -84,7 +81,10 @@ export const INPUT_WRAPPER_STYLES: Styles = {
   },
   boxSizing: 'border-box',
   transition: 'theme',
-
+  opacity: {
+    '': 1,
+    disabled: 0.5,
+  },
   Prefix: {
     ...ADD_STYLES,
     gridArea: 'prefix',
@@ -92,6 +92,7 @@ export const INPUT_WRAPPER_STYLES: Styles = {
 
   Suffix: {
     ...ADD_STYLES,
+    padding: '1x',
     gridArea: 'suffix',
   },
 
@@ -110,6 +111,7 @@ export const INPUT_WRAPPER_STYLES: Styles = {
   ValidationIcon: {
     display: 'grid',
     placeItems: 'center',
+    padding: '1x',
     width: {
       '': 'min 4x',
       suffix: 'min 3x',
@@ -118,7 +120,9 @@ export const INPUT_WRAPPER_STYLES: Styles = {
   },
 };
 
-const InputWrapperElement = tasty({ styles: INPUT_WRAPPER_STYLES });
+const InputWrapperElement = tasty({
+  styles: INPUT_WRAPPER_STYLES,
+});
 
 const STYLE_LIST = [...POSITION_STYLES, ...DIMENSION_STYLES];
 
@@ -194,13 +198,16 @@ export interface JengaTextInputBaseProps
   /** Style map for the input */
   inputStyles?: Styles;
   /** Style map for the input wrapper */
-  wrapperStyles?: Styles;
+  wrapperStylesProp?: Styles;
   /** The number of rows for the input. Only applies to textarea. */
   rows?: number;
   /** The resize CSS property sets whether an element is resizable, and if so, in which directions. */
   resize?: Styles['resize'];
   /** The size of the input */
   size?: 'small' | 'default' | 'large' | string;
+
+  /** if fullWidth === false ? width = [60%, 70%, 100%] : 100% to comply with the design system*/
+  fullWidth?: boolean;
 }
 
 function TextInputBase(props: JengaTextInputBaseProps, ref) {
@@ -242,7 +249,7 @@ function TextInputBase(props: JengaTextInputBaseProps, ref) {
     loadingIndicator,
     value,
     inputStyles = {},
-    wrapperStyles = {},
+    wrapperStylesProp = {},
     suffix,
     suffixPosition = 'before',
     wrapperRef,
@@ -255,6 +262,7 @@ function TextInputBase(props: JengaTextInputBaseProps, ref) {
     labelSuffix,
     maxLength,
     minLength,
+    fullWidth = false,
     ...otherProps
   } = props;
   let styles = extractStyles(otherProps, STYLE_LIST);
@@ -288,12 +296,12 @@ function TextInputBase(props: JengaTextInputBaseProps, ref) {
   let validationIcon = isInvalid ? (
     <Warning
       data-element="ValidationIcon"
-      style={{ color: 'var(--danger-color)' }}
+      style={{ color: 'var(--op-icon-critical)' }}
     />
   ) : (
     <Check
       data-element="ValidationIcon"
-      style={{ color: 'var(--success-color)' }}
+      style={{ color: 'var(--op-icon-success)' }}
     />
   );
   let validation = cloneElement(validationIcon);
@@ -358,6 +366,14 @@ function TextInputBase(props: JengaTextInputBaseProps, ref) {
       }
     : {};
 
+  const wrapperStyles = {
+    ...wrapperStylesProp,
+    width: {
+      '': ['60%', '70%', '100%'],
+      '[data-full-width="true"]': '100%',
+    },
+  };
+
   const textField = (
     <InputWrapperElement
       ref={wrapperRef}
@@ -365,6 +381,7 @@ function TextInputBase(props: JengaTextInputBaseProps, ref) {
       mods={modifiers}
       data-size={size}
       styles={wrapperStyles}
+      data-full-width={fullWidth}
       {...wrapperProps}
     >
       <InputElement
