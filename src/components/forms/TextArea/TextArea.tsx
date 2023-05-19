@@ -96,6 +96,13 @@ function TextArea(props: WithNullableValue<JengaTextAreaProps>, ref) {
       isReadOnly={isReadOnly}
       isRequired={isRequired}
       rows={rows}
+      styles={{
+        Prefix: {
+          alignSelf: 'start',
+          padding: '1.25x 0.25x',
+        },
+        ...props.styles,
+      }}
     />
   );
 }
