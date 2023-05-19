@@ -19,6 +19,7 @@ import { PortalProvider } from './portal';
 import { GlobalStyles } from './GlobalStyles';
 import { AlertDialogApiProvider } from './overlays/AlertDialog';
 import { NotificationsProvider } from './overlays/NewNotifications';
+import { JengaIconContext } from '@jengaicons/react';
 
 const RootElement = tasty({
   id: 'jenga-ui-kit-root',
@@ -122,7 +123,7 @@ export function Root(allProps: JengaRootProps) {
   return (
     <Provider router={router} root={rootRef}>
       <TrackingProvider event={tracking?.event}>
-        <StyleSheetManager disableVendorPrefixes>
+        <StyleSheetManager enableVendorPrefixes={false}>
           <RootElement
             ref={ref}
             {...filterBaseProps(props, { eventProps: true })}
@@ -144,7 +145,16 @@ export function Root(allProps: JengaRootProps) {
             <ModalProvider>
               <PortalProvider value={ref}>
                 <NotificationsProvider rootRef={ref}>
-                  <AlertDialogApiProvider>{children}</AlertDialogApiProvider>
+                  <AlertDialogApiProvider>
+                    <JengaIconContext.Provider
+                      value={{
+                        size: '1rem',
+                        color: 'currentColor',
+                      }}
+                    >
+                      {children}
+                    </JengaIconContext.Provider>
+                  </AlertDialogApiProvider>
                 </NotificationsProvider>
               </PortalProvider>
             </ModalProvider>
