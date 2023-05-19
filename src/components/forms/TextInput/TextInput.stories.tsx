@@ -1,5 +1,5 @@
 import { CurrencyCircleDollar } from '@jengaicons/react';
-import { StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import {
   ICON_ARG,
@@ -23,13 +23,14 @@ export default {
     ...ICON_ARG,
     ...VALIDATION_STATE_ARG,
   },
-};
+} as Meta<typeof TextInput>;
 
 const Template: StoryFn<JengaTextInputProps & { icon?: boolean }> = ({
   icon,
   ...props
 }) => (
   <TextInput
+    fullWidth={false}
     icon={icon ? <CurrencyCircleDollar /> : undefined}
     {...props}
     onChange={(query) => console.log('change', query)}
