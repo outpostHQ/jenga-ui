@@ -1,4 +1,4 @@
-import { CaretDown, CaretUp } from '@jengaicons/react';
+import { CaretDownFill, CaretUpFill } from '@jengaicons/react';
 
 import { Button } from '../../actions';
 import { Styles } from '../../../tasty';
@@ -32,13 +32,15 @@ export function StepButton(props) {
   return (
     <Button
       preventDefault
-      type="neutral"
+      type="clear"
+      border="0"
+      padding="0"
       styles={STEP_BUTTON_STYLES}
       icon={
         props.direction === 'up' ? (
-          <CaretUp style={{ fontSize: 'var(--icon-size)' }} />
+          <CaretUpFill style={{ fontSize: 'var(--icon-size)' }} />
         ) : (
-          <CaretDown style={{ fontSize: 'var(--icon-size)' }} />
+          <CaretDownFill style={{ fontSize: 'var(--icon-size)' }} />
         )
       }
       mods={{

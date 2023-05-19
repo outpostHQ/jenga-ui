@@ -26,11 +26,7 @@ export interface JengaNumberInputProps
   hideStepper?: boolean;
 }
 
-const StyledTextInputBase = tasty(TextInputBase, {
-  wrapperStyles: {
-    width: 'initial 13x 100%',
-  },
-});
+const StyledTextInputBase = tasty(TextInputBase, {});
 
 const StepperContainer = tasty({
   styles: {
