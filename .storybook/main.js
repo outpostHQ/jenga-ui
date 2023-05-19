@@ -16,7 +16,10 @@ const config = {
     storyStoreV7: true,
     modernInlineRender: true,
   },
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../src/components/actions/**/*.stories.mdx',
+    '../src/components/actions/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
