@@ -1,5 +1,5 @@
 import { forwardRef, useRef } from 'react';
-import { X, MagnifyingGlass } from '@jengaicons/react';
+import { X, SearchFill } from '@jengaicons/react';
 import { useSearchFieldState } from '@react-stately/searchfield';
 import { useSearchField } from '@react-aria/searchfield';
 
@@ -23,6 +23,7 @@ export interface JengaSearchInputProps extends JengaTextInputBaseProps {
 
 const ClearButton = tasty(Button, {
   icon: <X />,
+  type: 'clear',
   styles: {
     radius: 'right (1r - 1bw)',
     width: '4x',
@@ -52,7 +53,7 @@ export const SearchInput = forwardRef(function SearchInput(
       inputProps={inputProps}
       inputRef={inputRef}
       type="search"
-      icon={<MagnifyingGlass />}
+      icon={<SearchFill />}
       suffixPosition="after"
       {...props}
       suffix={
@@ -61,7 +62,7 @@ export const SearchInput = forwardRef(function SearchInput(
             {props.suffix}
             {showClearButton && (
               <ClearButton
-                type={validationState === 'invalid' ? 'clear' : 'neutral'}
+                type={validationState === 'invalid' ? 'invisible' : 'invisible'}
                 theme={validationState === 'invalid' ? 'danger' : undefined}
                 {...ariaToJengaButtonProps(clearButtonProps)}
               />
