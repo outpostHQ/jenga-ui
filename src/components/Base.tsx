@@ -22,7 +22,7 @@ const INLINE_MAP = {
   flex: 'inline-flex',
 } as const;
 
-const BaseElement = styled.div(({ css }) => css);
+const BaseElement = styled.div((css) => css);
 
 /**
  * @deprecated consider using tasty() instead
