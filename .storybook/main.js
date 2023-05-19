@@ -18,7 +18,7 @@ const config = {
   },
   stories: [
     '../src/components/actions/**/*.stories.mdx',
-    '../src/components/actions/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/components/forms/Checkbox/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',

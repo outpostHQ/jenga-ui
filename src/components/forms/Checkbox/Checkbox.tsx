@@ -41,7 +41,7 @@ export interface JengaCheckboxProps
 
 function Check() {
   return (
-    <svg width="10" height="8" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="10" height="8" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M3.417 7.604l-.017.018-3.4-3.4 1.433-1.433 1.985 1.985L8.192 0l1.432 1.433-6.189 6.189-.018-.018z"
         fill="currentColor"
@@ -52,7 +52,7 @@ function Check() {
 function IndeterminateOutline() {
   return (
     <svg width="9" height="3" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 .044v2.001l.026.025h8.063V.044H0z" fill="#fff" />
+      <path d="M0 .044v2.001l.026.025h8.063V.044H0z" />
     </svg>
   );
 }
@@ -77,30 +77,36 @@ const CheckboxElement = tasty({
   styles: {
     display: 'grid',
     placeItems: 'center',
-    radius: '.5r',
+    radius: '0.5x',
     fill: {
-      '': '#white',
-      'checked | indeterminate': '#purple-text',
-      'invalid & !checked': '#white',
-      'invalid & checked': '#danger-text',
-      disabled: '#dark.12',
+      '': '#op-surface',
+      'checked | indeterminate': '#op-surface-primary',
+      'invalid & checked': '#op-text-critical',
     },
     color: {
-      '': '#white',
+      '': '#op-surface',
+      checked: '#op-surface',
       'disabled & !checked & !indeterminate': '#clear',
     },
     border: {
-      '': '#dark.30',
-      invalid: '#danger-text.50',
+      '': '#op-border',
+      invalid: '#op-border-critical',
       'disabled | ((indeterminate | checked) & !invalid)': '#clear',
     },
-    width: '(2x - 2bw)',
-    height: '(2x - 2bw)',
+    cursor: {
+      disabled: 'not-allowed',
+    },
+    width: '2.5x',
+    height: '2.5x',
     outline: {
-      '': '#purple-03.0',
-      focused: '#purple-03',
+      '': '#clear',
+      focused: '#op-border-focus',
     },
     transition: 'theme',
+    opacity: {
+      '': 1,
+      disabled: 0.5,
+    },
   },
 });
 
@@ -229,7 +235,9 @@ function Checkbox(
     <CheckboxWrapperElement
       isHidden={isHidden}
       mods={mods}
-      styles={{ position: 'relative' }}
+      styles={{
+        position: 'relative',
+      }}
     >
       <HiddenInput
         data-qa={qa || 'Checkbox'}
