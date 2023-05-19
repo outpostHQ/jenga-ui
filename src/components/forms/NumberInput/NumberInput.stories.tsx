@@ -1,4 +1,5 @@
 import { CurrencyCircleDollar } from '@jengaicons/react';
+import { StoryFn } from '@storybook/react';
 
 import { baseProps } from '../../../stories/lists/baseProps';
 import { NUMBER_VALUE_ARG } from '../../../stories/FormFieldArgs';
@@ -18,7 +19,7 @@ export default {
   },
 };
 
-const Template = ({ icon, ...props }) => (
+const Template: StoryFn<typeof NumberInput> = ({ icon, ...props }) => (
   <NumberInput
     prefix={icon ? <CurrencyCircleDollar /> : null}
     {...props}
@@ -31,11 +32,6 @@ Default.args = {};
 
 export const WithDefaultValue = Template.bind({});
 WithDefaultValue.args = { defaultValue: 5 };
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
