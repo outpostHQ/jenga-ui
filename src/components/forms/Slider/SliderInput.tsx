@@ -11,23 +11,23 @@ export interface RangeInputProps extends JengaNumberInputProps {
   width?: string;
 }
 
-function calculateWidth(max?: number, hasSuffix?: boolean) {
-  if (typeof max === 'undefined') {
-    return undefined;
-  }
+// function calculateWidth(max?: number, hasSuffix?: boolean) {
+//   if (typeof max === 'undefined') {
+//     return undefined;
+//   }
 
-  const value = String(max).length;
-  // for 2 digit values 1.6 is better with suffix
-  const suffixWidth = value > 2 ? 1.6 : 1.75;
-  const charWidth = hasSuffix ? suffixWidth : 2;
+//   const value = String(max).length;
+//   // for 2 digit values 1.6 is better with suffix
+//   const suffixWidth = value > 2 ? 1.6 : 1.75;
+//   const charWidth = hasSuffix ? suffixWidth : 2;
 
-  return `${value * charWidth}x`;
-}
+//   return `${value * charWidth}x`;
+// }
 
 export function SliderInput(props: RangeInputProps) {
   const { state, index, formatOptions, width, min, max, ...otherProps } = props;
 
-  const inputWidth = width || calculateWidth(max);
+  // const inputWidth = width || calculateWidth(max);
   const value = state.values[index];
   const onChange = useCallback(
     (value: number) => {
@@ -45,9 +45,9 @@ export function SliderInput(props: RangeInputProps) {
       {...otherProps}
       hideStepper
       size="small"
-      wrapperStyles={{
-        width: inputWidth,
-      }}
+      // wrapperStyles={{
+      //   width: inputWidth,
+      // }}
       textAlign="center"
       formatOptions={formatOptions}
       value={value}
