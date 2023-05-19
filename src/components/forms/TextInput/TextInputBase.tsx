@@ -92,7 +92,6 @@ export const INPUT_WRAPPER_STYLES: Styles = {
 
   Suffix: {
     ...ADD_STYLES,
-    padding: '1x',
     gridArea: 'suffix',
   },
 
@@ -404,7 +403,9 @@ function TextInputBase(props: JengaTextInputBaseProps, ref) {
           {suffixPosition === 'before' ? suffix : null}
           {(validationState && !isLoading) || isLoading ? (
             <div data-element="State">
-              {validationState && !isLoading ? validation : null}
+              {validationState && !isLoading ? (
+                <div style={{ padding: '8px' }}>{validation}</div>
+              ) : null}
               {isLoading && <CircleNotch data-element="InputIcon" />}
             </div>
           ) : null}

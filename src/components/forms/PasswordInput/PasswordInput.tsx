@@ -46,12 +46,18 @@ function PasswordInput(props: WithNullableValue<JengaTextInputBaseProps>, ref) {
       {suffix}
       <Button
         excludeFromTabOrder
-        type="neutral"
+        type="outline"
+        styles={{
+          border: '0',
+          borderLeft: '1px solid #op-border',
+          zIndex: 1,
+          borderTopLeftRadius: '0',
+          borderBottomLeftRadius: '0',
+        }}
         htmlType="button"
         placeSelf="stretch"
         height="auto"
-        radius="right"
-        width="4x"
+        width="4.5x"
         label="Toggle masking"
         icon={type === 'password' ? <EyeSlash /> : <Eye />}
         onPress={toggleType}
@@ -68,6 +74,7 @@ function PasswordInput(props: WithNullableValue<JengaTextInputBaseProps>, ref) {
       inputStyles={{ paddingRight: '4x' }}
       type={type}
       suffixPosition="after"
+      overflow="hidden"
       suffix={wrappedSuffix}
       multiLine={multiLine}
       {...rest}
