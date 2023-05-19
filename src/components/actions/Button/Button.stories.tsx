@@ -22,25 +22,6 @@ export default {
   },
 } as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Button> = ({
-  icon,
-  rightIcon,
-  label,
-  onClick,
-  ...props
-}) => (
-  <Space radius="1x">
-    <Button
-      icon={icon ? <CurrencyCircleDollar /> : undefined}
-      rightIcon={rightIcon ? <CaretDownFill /> : undefined}
-      {...props}
-      onPress={(e) => console.log('Press', e)}
-    >
-      Button
-    </Button>
-  </Space>
-);
-
 const TemplateSizes: StoryFn<typeof Button> = ({
   label,
   icon,

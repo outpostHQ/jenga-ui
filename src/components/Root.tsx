@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ModalProvider } from '@react-aria/overlays';
 import { StyleSheetManager } from 'styled-components';
+import { JengaIconContext } from '@jengaicons/react';
 
 import {
   BASE_STYLES,
@@ -19,7 +20,6 @@ import { PortalProvider } from './portal';
 import { GlobalStyles } from './GlobalStyles';
 import { AlertDialogApiProvider } from './overlays/AlertDialog';
 import { NotificationsProvider } from './overlays/NewNotifications';
-import { JengaIconContext } from '@jengaicons/react';
 
 const RootElement = tasty({
   id: 'jenga-ui-kit-root',
