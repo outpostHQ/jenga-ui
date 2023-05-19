@@ -118,7 +118,315 @@ export const GlobalStyles = createGlobalStyle`
     }}
   }
 
+  :root{
+         --op-white: #ffffff;
+  --op-black: #000000;
+
+  /* Purple */
+  --op-purple-50: #f2f2ff;
+  --op-purple-100: #efebff;
+  --op-purple-200: #e1daff;
+  --op-purple-300: #d7ceff;
+  --op-purple-400: #beb3ff;
+  --op-purple-500: #a297ff;
+  --op-purple-600: #7f7aff;
+  --op-purple-700: #6864d4;
+  --op-purple-800: #5754ae;
+  --op-purple-900: #464287;
+  --op-purple-1100: #393568;
+  --op-purple-1200: #272447;
+
+  /* Pink */
+  --op-pink-50: #fffbff;
+  --op-pink-100: #ffecf2;
+  --op-pink-200: #ffd8e8;
+  --op-pink-300: #ffafd6;
+  --op-pink-400: #ee8cbf;
+  --op-pink-500: #cf72a4;
+  --op-pink-600: #b1598a;
+  --op-pink-700: #944170;
+  --op-pink-800: #772957;
+  --op-pink-900: #5b1140;
+  --op-pink-1100: #3c0028;
+  --op-pink-1200: #3c0028;
+
+  /* Red */
+  --op-red-50: #fffbff;
+  --op-red-100: #ffedeb;
+  --op-red-200: #ffdad7;
+  --op-red-300: #ffb3ae;
+  --op-red-400: #ff8983;
+  --op-red-500: #ed6561;
+  --op-red-600: #cc4c4a;
+  --op-red-700: #aa3334;
+  --op-red-800: #8a1b1f;
+  --op-red-900: #68000c;
+  --op-red-1100: #410005;
+  --op-red-1200: #410005;
+
+  /* Yellow */
+  --op-yellow-50: #fffbff;
+  --op-yellow-100: #ffeee2;
+  --op-yellow-200: #ffdcc1;
+  --op-yellow-300: #ffb877;
+  --op-yellow-400: #ee9742;
+  --op-yellow-500: #ce7e2a;
+  --op-yellow-600: #af650f;
+  --op-yellow-700: #8e4f00;
+  --op-yellow-800: #6c3a00;
+  --op-yellow-900: #4c2700;
+  --op-yellow-1100: #2e1500;
+  --op-yellow-1200: #2e1500;
+
+  /* Green */
+  --op-green-50: #f7ffed;
+  --op-green-100: #cdffb1;
+  --op-green-200: #b6f398;
+  --op-green-300: #9bd67f;
+  --op-green-400: #81ba66;
+  --op-green-500: #679f4e;
+  --op-green-600: #4e8437;
+  --op-green-700: #366a21;
+  --op-green-800: #1e5108;
+  --op-green-900: #0e3900;
+  --op-green-1100: #062100;
+  --op-green-1200: #062100;
+
+  /* Orange */
+  --op-orange-50: #fffbff;
+  --op-orange-100: #ffede6;
+  --op-orange-200: #ffdbcc;
+  --op-orange-300: #ffb693;
+  --op-orange-400: #ff8c51;
+  --op-orange-500: #e17134;
+  --op-orange-600: #c0591c;
+  --op-orange-700: #a04100;
+  --op-orange-800: #7a3000;
+  --op-orange-900: #562000;
+  --op-orange-1100: #351000;
+  --op-orange-1200: #351000;
+
+  /* Blue */
+  --op-blue-50: #fdfbff;
+  --op-blue-100: #ecf1ff;
+  --op-blue-200: #d5e3ff;
+  --op-blue-300: #a8c8ff;
+  --op-blue-400: #7bacfa;
+  --op-blue-500: #5f92dd;
+  --op-blue-600: #4378c1;
+  --op-blue-700: #255ea6;
+  --op-blue-800: #004689;
+  --op-blue-900: #003061;
+  --op-blue-1100: #001b3c;
+  --op-blue-1200: #001b3c;
+
+  /* Teal */
+  --op-teal-50: #f2fffc;
+  --op-teal-100: #b1fff7;
+  --op-teal-200: #71f7ed;
+  --op-teal-300: #4fdbd1;
+  --op-teal-400: #25beb5;
+  --op-teal-500: #00a29a;
+  --op-teal-600: #00857f;
+  --op-teal-700: #006a64;
+  --op-teal-800: #00504b;
+  --op-teal-900: #003734;
+  --op-teal-1100: #00201e;
+  --op-teal-1200: #00201e;
+
+  /* Violet */
+  --op-violet-50: #fffbff;
+  --op-violet-100: #f3eeff;
+  --op-violet-200: #e3dfff;
+  --op-violet-300: #c4c0ff;
+  --op-violet-400: #a6a1fd;
+  --op-violet-500: #8b87e0;
+  --op-violet-600: #726dc4;
+  --op-violet-700: #5954a9;
+  --op-violet-800: #413b90;
+  --op-violet-900: #292278;
+  --op-violet-1100: #171347;
+  --op-violet-1200: #0e0b29;
+
+  /* Zinc */
+  --op-zinc-50: #fafafa;
+  --op-zinc-100: #f4f4f5;
+  --op-zinc-200: #e4e4e7;
+  --op-zinc-300: #d4d4d8;
+  --op-zinc-400: #a1a1aa;
+  --op-zinc-500: #71717a;
+  --op-zinc-600: #52525b;
+  --op-zinc-700: #3f3f46;
+  --op-zinc-800: #27272a;
+  --op-zinc-900: #18181b;
+  --op-zinc-1100: #121312;
+  --op-zinc-1200: #010101;
+
+  /* Gray */
+  --op-gray-50: #fffbff;
+  --op-gray-100: #f4eff4;
+  --op-gray-200: #e5e1e6;
+  --op-gray-300: #c9c5ca;
+  --op-gray-400: #adaaaf;
+  --op-gray-500: #929094;
+  --op-gray-600: #78767a;
+  --op-gray-700: #5f5e62;
+  --op-gray-800: #47464a;
+  --op-gray-900: #313034;
+  --op-gray-1100: #1c1b1f;
+  --op-gray-1200: #121312;
+  }
+
+html[data-theme='light'] {
+  /* SURFACES */
+
+}
+
+/* dark theme variables */
+
+html[data-theme='dark'] {
+  --op-shadow-color: rgba(0, 0, 0, 0.33);
+
+  /* SURFACES */
+
+  --op-surface-color: var(--op-zinc-1100);
+  --op-surface-subdued-color: var(--op-zinc-900);
+
+  --op-surface-hovered-color: var(--op-zinc-800);
+  --op-surface-pressed-color: var(--op-zinc-1200);
+  --op-surface-active-color: rgba(39, 39, 42, 0.5);
+  --op-surface-input-color: var(--op-zinc-1100);
+
+  --op-surface-secondary-color: var(--op-pink-700);
+  --op-surface-secondary-subdued-color: var(--op-pink-1100);
+  --op-surface-secondary-hovered-color: var(--op-pink-600);
+  --op-surface-secondary-pressed-color: var(--op-pink-900);
+  --op-surface-secondary-light-color: var(--op-pink-1100);
+
+  --op-surface-primary-color: var(--op-violet-700);
+  --op-surface-primary-subdued-color: var(--op-violet-1200);
+  --op-surface-primary-hovered-color: var(--op-violet-500);
+  --op-surface-primary-pressed-color: var(--op-violet-1100);
+  --op-surface-primary-light-color: var(--op-violet-800);
+
+  --op-surface-critical-color: var(--op-red-700);
+  --op-surface-critical-subdued-color: var(--op-orange-1100);
+  --op-surface-critical-hovered-color: var(--op-red-600);
+  --op-surface-critical-pressed-color: var(--op-red-900);
+
+  --op-surface-warning-color: var(--op-yellow-700);
+  --op-surface-warning-subdued-color: var(--op-yellow-1100);
+
+  --op-surface-success-color: var(--op-green-700);
+  --op-surface-success-subdued-color: var(--op-green-1100);
+
+  /* TEXT */
+  --op-text-color: var(--op-gray-100);
+  --op-text-soft-color: var(--op-gray-300);
+  --op-text-strong-color: var(--op-gray-500);
+  --op-text-disabled-color: var(--op-gray-800);
+
+  --op-text-critical-color: var(--op-red-500);
+  --op-text-warning-color: var(--op-yellow-500);
+  --op-text-success-color: var(--op-green-500);
+  --op-text-secondary-color: var(--op-pink-500);
+
+  --op-text-primary-color: var(--op-purple-700);
+  --op-text-on-primary-color: var(--op-red-50);
+
+  /* ICONS */
+  --op-icon-color: var(--op-gray-100);
+  --op-icon-disabled-color: var(--op-gray-300);
+
+  --op-icon-critical-color: var(--op-red-500);
+  --op-icon-warning-color: var(--op-yellow-500);
+  --op-icon-success-color: rgb(103, 159, 78);
+
+  --op-icon-primary-color: var(--op-violet-500);
+  --op-icon-secondary-color: var(--op-pink-500);
+  --op-icon-on-primary-color: var(--op-red-50);
+
+  /* BORDERS */
+
+  /* don't use  */
+
+  --op-border-color: #47464a88;
+  --op-border-critical-color: var(--op-red-500);
+  --op-border-warning-color: var(--op-yellow-500);
+  --op-border-success-color: #689e4f;
+  --op-border-primary-color: #bbb8e5;
+  --op-border-secondary-color: var(--op-pink-500);
+  --op-border-focus-color: var(--op-teal-500);
+}
+
   html {
+
+
+  --op-surface-color: var(--op-white);
+  --op-surface-subdued-color: var(--op-zinc-50);
+  --op-surface-hovered-color: var(--op-zinc-100);
+  --op-surface-pressed-color: var(--op-zinc-200);
+  --op-surface-active-color: rgba(228, 228, 231, 0.5);
+  --op-surface-input-color: var(--op-white);
+
+  --op-surface-secondary-color: var(--op-pink-700);
+  --op-surface-secondary-subdued-color: var(--op-pink-100);
+  --op-surface-secondary-hovered-color: var(--op-pink-400);
+  --op-surface-secondary-pressed-color: var(--op-pink-800);
+  --op-surface-secondary-light-color: var(--op-orange-50);
+
+  --op-surface-primary-color: var(--op-violet-600);
+  --op-surface-primary-subdued-color: var(--op-violet-100);
+  --op-surface-primary-hovered-color: var(--op-violet-400);
+  --op-surface-primary-pressed-color: var(--op-violet-800);
+  --op-surface-primary-light-color: var(--op-violet-100);
+
+  --op-surface-critical-color: var(--op-red-700);
+  --op-surface-critical-subdued-color: var(--op-red-200);
+  --op-surface-critical-hovered-color: var(--op-red-400);
+  --op-surface-critical-pressed-color: var(--op-red-800);
+
+  --op-surface-warning-color: var(--op-yellow-500);
+  --op-surface-warning-subdued-color: var(--op-yellow-100);
+
+  --op-surface-success-color: var(--op-green-600);
+  --op-surface-success-subdued-color: var(--op-green-50);
+
+  /* TEXT */
+  --op-text-color: var(--op-gray-1100);
+  --op-text-soft-color: var(--op-gray-700);
+  --op-text-strong-color: var(--op-gray-900);
+  --op-text-disabled-color: var(--op-gray-200);
+
+  --op-text-critical-color: var(--op-red-700);
+  --op-text-warning-color: var(--op-yellow-600);
+  --op-text-success-color: var(--op-green-600);
+  --op-text-secondary-color: var(--op-pink-700);
+
+  --op-text-on-primary-color: var(--op-red-50);
+  --op-text-primary-color: var(--op-purple-700);
+
+  /* ICONS */
+  --op-icon-color: var(--op-gray-1100);
+  --op-icon-disabled-color: var(--op-gray-300);
+  --op-icon-on-primary-color: var(--op-red-50);
+
+  --op-icon-critical-color: var(--op-red-700);
+  --op-icon-warning-color: var(--op-yellow-600);
+  --op-icon-success-color: var(--op-green-600);
+  --op-icon-primary-color: var(--op-violet-600);
+  --op-icon-secondary-color: var(--op-pink-500);
+
+  /* BORDERS */
+
+  --op-border-color: var(--op-gray-200);
+  --op-border-critical-color: rgba(170, 51, 52, 0.533);
+  --op-border-warning-color: rgba(207, 126, 41, 0.533);
+  --op-border-success-color: rgba(78, 132, 55, 0.533);
+  --op-border-primary-color: rgba(114, 109, 196, 0.533);
+  --op-border-secondary-color: rgba(148, 65, 112, 0.533);
+  --op-border-focus-color: rgb(79, 219, 209);
+  --op-shadow-color: rgba(188, 187, 232, 0.329);
     --font: ${({ font }: GlobalStylesProps) =>
       font ||
       'Inter'}, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -337,4 +645,14 @@ export const GlobalStyles = createGlobalStyle`
   .token.entity {
     cursor: help;
   }
+
+  .loading-spinner{
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 `;
