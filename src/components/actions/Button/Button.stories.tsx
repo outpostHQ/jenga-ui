@@ -1,4 +1,5 @@
 import { CaretDownFill, CurrencyCircleDollar } from '@jengaicons/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { baseProps } from '../../../stories/lists/baseProps';
 import { Space } from '../../layout/Space';
@@ -10,79 +11,53 @@ export default {
   component: Button,
   parameters: { controls: { exclude: baseProps } },
   argTypes: {
-    size: {
-      defaultValue: undefined,
-      control: { type: 'radio', options: [undefined, 'small', 'large'] },
-    },
     type: {
-      defaultValue: undefined,
-      control: {
-        type: 'radio',
-        options: [
-          undefined,
-          'secondary',
-          'primary',
-          'outline',
-          'clear',
-          'neutral',
-          'link',
-        ],
-      },
+      options: ['primary', 'clear', 'invisible', 'link', 'outline'],
+      control: 'radio',
     },
     theme: {
       defaultValue: undefined,
-      control: { type: 'radio', options: [undefined, 'danger', 'special'] },
+      control: { type: 'radio', options: [undefined, 'danger'] },
     },
   },
-};
+} as Meta<typeof Button>;
 
-const Template = ({ icon, rightIcon, label, onClick, ...props }) => (
-  <Space
-    radius="1x"
-    padding={props.theme === 'special' ? '2x' : undefined}
-    fill={props.theme === 'special' ? '#dark' : undefined}
-  >
+const Template: StoryFn<typeof Button> = ({
+  icon,
+  rightIcon,
+  label,
+  onClick,
+  ...props
+}) => (
+  <Space radius="1x">
     <Button
       icon={icon ? <CurrencyCircleDollar /> : undefined}
       rightIcon={rightIcon ? <CaretDownFill /> : undefined}
       {...props}
       onPress={(e) => console.log('Press', e)}
     >
-      {label}
+      Button
     </Button>
   </Space>
 );
 
-const TemplateSizes = ({ label, icon, rightIcon, size, ...props }) => (
-  <Space>
-    <Button
-      icon={icon ? <CurrencyCircleDollar /> : undefined}
-      rightIcon={rightIcon ? <CaretDownFill /> : undefined}
-      {...props}
-      size="small"
-    >
-      {label}
-    </Button>
-    <Button
-      icon={icon ? <CurrencyCircleDollar /> : undefined}
-      rightIcon={rightIcon ? <CaretDownFill /> : undefined}
-      {...props}
-      size="medium"
-    >
-      {label}
-    </Button>
-    <Button
-      icon={icon ? <CurrencyCircleDollar /> : undefined}
-      rightIcon={rightIcon ? <CaretDownFill /> : undefined}
-      {...props}
-      size="large"
-    >
-      {label}
-    </Button>
-  </Space>
+const TemplateSizes: StoryFn<typeof Button> = ({
+  label,
+  icon,
+  rightIcon,
+  size,
+  ...props
+}) => (
+  <Button
+    icon={icon ? <CurrencyCircleDollar /> : undefined}
+    rightIcon={rightIcon ? <CaretDownFill /> : undefined}
+    {...props}
+  >
+    {label}
+  </Button>
 );
 
-const TemplateStates = ({ label, mods, ...props }) => (
+const TemplateStates: StoryFn<typeof Button> = ({ label, mods, ...props }) => (
   <Space>
     <Button
       {...props}
@@ -93,7 +68,7 @@ const TemplateStates = ({ label, mods, ...props }) => (
         disabled: false,
       }}
     >
-      {label || 'Secondary'}
+      {label || 'Default'}
     </Button>
     <Button
       {...props}
@@ -128,88 +103,20 @@ const TemplateStates = ({ label, mods, ...props }) => (
     >
       {label || 'Focused'}
     </Button>
-    <Button
-      {...props}
-      isDisabled
-      mods={{
-        hovered: false,
-        pressed: false,
-        focused: false,
-      }}
-    >
+    <Button {...props} isDisabled>
       {label || 'Disabled'}
     </Button>
   </Space>
 );
 
-const DarkTemplateStates = ({ label, mods, ...props }) => (
-  <Space padding="2x" radius="1x" fill="#dark">
-    <Button
-      {...props}
-      mods={{
-        hovered: false,
-        pressed: false,
-        focused: false,
-        disabled: false,
-      }}
-    >
-      {label || 'Secondary'}
-    </Button>
-    <Button
-      {...props}
-      mods={{
-        hovered: true,
-        pressed: false,
-        focused: false,
-        disabled: false,
-      }}
-    >
-      {label || 'Hovered'}
-    </Button>
-    <Button
-      {...props}
-      mods={{
-        hovered: false,
-        pressed: true,
-        focused: false,
-        disabled: false,
-      }}
-    >
-      {label || 'Pressed'}
-    </Button>
-    <Button
-      {...props}
-      mods={{
-        hovered: false,
-        pressed: false,
-        focused: true,
-        disabled: false,
-      }}
-    >
-      {label || 'Focused'}
-    </Button>
-    <Button
-      {...props}
-      isDisabled
-      mods={{
-        hovered: false,
-        pressed: false,
-        focused: false,
-      }}
-    >
-      {label || 'Disabled'}
-    </Button>
-  </Space>
-);
-
-export const Default = Template.bind({});
+export const Default = TemplateStates.bind({});
 Default.args = {
   label: 'Button',
 };
 
-export const SecondaryStates = TemplateStates.bind({});
-SecondaryStates.args = {
-  type: 'secondary',
+export const InvisibleStates = TemplateStates.bind({});
+InvisibleStates.args = {
+  type: 'invisible',
 };
 
 export const PrimaryStates = TemplateStates.bind({});
@@ -227,19 +134,14 @@ ClearStates.args = {
   type: 'clear',
 };
 
-export const NeutralStates = TemplateStates.bind({});
-NeutralStates.args = {
-  type: 'neutral',
-};
-
 export const LinkStates = TemplateStates.bind({});
 LinkStates.args = {
   type: 'link',
 };
 
-export const DangerSecondaryStates = TemplateStates.bind({});
-DangerSecondaryStates.args = {
-  type: 'secondary',
+export const DangerInvisibleStates = TemplateStates.bind({});
+DangerInvisibleStates.args = {
+  type: 'invisible',
   theme: 'danger',
 };
 
@@ -261,64 +163,10 @@ DangerClearStates.args = {
   theme: 'danger',
 };
 
-export const DangerNeutralStates = TemplateStates.bind({});
-DangerNeutralStates.args = {
-  type: 'neutral',
-  theme: 'danger',
-};
-
 export const DangerLinkStates = TemplateStates.bind({});
 DangerLinkStates.args = {
   type: 'link',
   theme: 'danger',
-};
-
-export const SpecialSecondaryStates = DarkTemplateStates.bind({});
-SpecialSecondaryStates.args = {
-  type: 'secondary',
-  theme: 'special',
-};
-
-export const SpecialPrimaryStates = DarkTemplateStates.bind({});
-SpecialPrimaryStates.args = {
-  type: 'primary',
-  theme: 'special',
-};
-
-export const SpecialOutlineStates = DarkTemplateStates.bind({});
-SpecialOutlineStates.args = {
-  type: 'outline',
-  theme: 'special',
-};
-
-export const SpecialClearStates = DarkTemplateStates.bind({});
-SpecialClearStates.args = {
-  type: 'clear',
-  theme: 'special',
-};
-
-export const SpecialNeutralStates = DarkTemplateStates.bind({});
-SpecialNeutralStates.args = {
-  type: 'neutral',
-  theme: 'special',
-};
-
-export const SpecialLinkStates = DarkTemplateStates.bind({});
-SpecialLinkStates.args = {
-  type: 'link',
-  theme: 'special',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  label: 'Button',
-  size: 'small',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  label: 'Button',
-  size: 'large',
 };
 
 export const LeftIconAndText = TemplateSizes.bind({});
@@ -343,6 +191,7 @@ TwoIconsAndText.args = {
 export const OnlyIcon = TemplateSizes.bind({});
 OnlyIcon.args = {
   icon: true,
+  type: 'icon',
 };
 
 export const Loading = TemplateSizes.bind({});
