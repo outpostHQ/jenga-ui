@@ -18,15 +18,7 @@ export interface JengaButtonProps extends JengaActionProps {
   rightIcon?: ReactElement;
   isLoading?: boolean;
   isSelected?: boolean;
-  type?:
-    | 'primary'
-    | 'secondary'
-    | 'danger'
-    | 'link'
-    | 'clear'
-    | 'outline'
-    | 'neutral'
-    | (string & {});
+  type?: 'primary' | 'clear' | 'invisible' | 'link' | 'outline' | (string & {});
   size?: 'small' | 'medium' | 'large' | (string & {});
 }
 
@@ -42,46 +34,17 @@ export const DEFAULT_BUTTON_STYLES: Styles = {
     '': '#purple-03.0',
     focused: '#purple-03',
   },
+  fontSize: '0.9375rem',
+  fontWeight: 500,
   cursor: 'pointer',
   gap: '1x',
   flow: 'column',
-  preset: {
-    '': 't3m',
-    '[data-size="large"]': 't2m',
-  },
   textDecoration: 'none',
   transition: 'theme',
   reset: 'button',
-  padding: {
-    '': '(1.25x - 1bw) (2x - 1bw)',
-    '[data-size="small"]': '(.75x - 1bw) (1.5x - 1bw)',
-    '[data-size="medium"]': '(1.25x - 1bw) (2x - 1bw)',
-    '[data-size="large"]': '1.5x (2.5x - 1bw)',
-    'single-icon-only | [data-type="link"]': 0,
-  },
-  width: {
-    '': 'initial',
-    '[data-size="small"] & single-icon-only': '4x 4x',
-    '[data-size="medium"] & single-icon-only': '5x 5x',
-    '[data-size="large"] & single-icon-only': '6x 6x',
-  },
-  height: {
-    '': 'initial',
-    '[data-size="small"] & single-icon-only': '4x 4x',
-    '[data-size="medium"] & single-icon-only': '5x 5x',
-    '[data-size="large"] & single-icon-only': '6x 6x',
-  },
+  padding: '0.5rem 1rem',
   whiteSpace: 'nowrap',
-  radius: {
-    '': true,
-    '[data-type="link"] & !focused': 0,
-  },
-
-  '& .anticon': {
-    transition:
-      'display .2s steps(1, start), margin .2s linear, opacity .2s linear',
-  },
-
+  radius: '2r',
   ButtonIcon: {
     display: 'grid',
     fontSize: '@icon-size',
@@ -93,175 +56,136 @@ const ButtonElement = tasty({
   styles: DEFAULT_BUTTON_STYLES,
   variants: {
     default: {
-      shadow: {
-        '': false,
-        '[data-type="link"]': '0 @border-width 0 0 #purple.20',
-        '[data-type="link"] & (pressed | hovered | [disabled])':
-          '0 0 0 0 #purple.20',
+      opacity: {
+        '': 1,
+        ' [disabled]': 0.5,
       },
+      cursor: {
+        '': 'pointer',
+        '[disabled]': 'not-allowed',
+      },
+
       outline: {
         '': '0 #purple-03.0',
-        focused: '@outline-width #purple-03',
+        focused: '@outline-width #op-border-focus',
       },
       border: {
         // default
-        '': '#clear',
-        '[data-type="primary"] & pressed': '#purple-text',
-        '[data-type="secondary"] & pressed': '#purple.3',
-        '[data-type="outline"]': '#purple.3',
-        '[data-type="outline"] & [disabled]': '#dark.12',
-        '([data-type="clear"] | [data-type="outline"]) & pressed':
-          '#purple-text.10',
-        '[data-type="link"]': '0',
+        '': '#op-border-primary',
+        '[data-type="primary"] & pressed': '#op-border-primary',
+        '[data-type="outline"]': '#op-border',
+        '[data-type="outline"] & [disabled]': '#op-border',
+
+        '([data-type="clear"] | [data-type="outline"]) & pressed': '#op-border',
+        '([data-type="clear"]': '1px solid #clear',
+        '([data-type="clear"] & hovered': '#op-border',
+        '([data-type="clear"] & pressed': '#op-border',
+        '([data-type="clear"] & [disabled]': '#op-border',
+
+        '[data-type="invisible"] & pressed': '0',
+
+        '[data-type="link"] | [data-type="invisible"]': 0,
       },
       fill: {
-        '': '#clear',
+        '': '#op-surface-primary',
+        '[data-type="primary"]': '#op-surface-primary',
+        '[data-type="primary"] & pressed': '#op-surface-primary-pressed',
+        '[data-type="primary"] & hovered': '#op-surface-primary-hovered',
 
-        '[data-type="primary"]': '#purple',
-        '[data-type="primary"] & pressed': '#purple',
-        '[data-type="primary"] & hovered': '#purple-text',
+        '([data-type="clear"] | [data-type="outline"])': '#clear',
+        '([data-type="clear"] | [data-type="outline"]) & hovered':
+          '#op-surface-hovered',
+        '([data-type="clear"] | [data-type="outline"]) & pressed':
+          '#op-surface-pressed',
 
-        '[data-type="secondary"]': '#purple.10',
-        '[data-type="secondary"] & hovered': '#purple.16',
-        '[data-type="secondary"] & pressed': '#purple-text.10',
-
-        '[data-type="neutral"]': '#dark.0',
-        '[data-type="neutral"] & hovered': '#dark.04',
-        '[data-type="neutral"] & pressed': '#dark.05',
-
-        '[disabled] & ![data-type="link"]': '#dark.04',
-
-        '([data-type="clear"] | [data-type="outline"])': '#purple.0',
-        '([data-type="clear"] | [data-type="outline"]) & hovered': '#purple.16',
-        '([data-type="clear"] | [data-type="outline"]) & pressed': '#purple.10',
-        '([data-type="clear"] | [data-type="outline"]) & [disabled]':
-          '#purple.0',
+        '[data-type="link"]': '#clear',
+        '[data-type="invisible"]': '#clear',
       },
       color: {
         // default
-        '': '#white',
-        '[data-type="secondary"]': '#purple',
-        '[data-type="clear"] | [data-type="outline"] | [data-type="link"]':
-          '#purple-text',
-        '[data-type="link"] & pressed': '#purple',
-        '[data-type="neutral"]': '#dark.75',
-        '[data-type="neutral"] & hovered': '#dark.75',
-        '[data-type="neutral"] & pressed': '#purple',
-
-        // other
-        '[disabled]': '#dark.30',
+        '': '#op-text-on-primary',
+        '[data-type="invisible"] | [data-type="clear"] | [data-type="outline"]':
+          '#op-text',
+        '[data-type="link"]': '#op-text-primary',
+      },
+      padding: {
+        '': '1x 2x',
+        '[data-type="link"] | [data-type="invisible"]': 0,
+        '[data-is-single-icon-only] ': '0.5rem',
       },
     },
     danger: {
-      shadow: {
-        '': false,
-        '[data-type="link"]': '0 @border-width 0 0 #danger.20',
-        '[data-type="link"] & (pressed | hovered | [disabled])':
-          '0 0 0 0 #danger.20',
+      opacity: {
+        '': 1,
+        ' [disabled]': 0.5,
       },
+      cursor: {
+        '': 'pointer',
+        '[disabled]': 'not-allowed',
+      },
+
       outline: {
-        '': '0 #danger.0',
-        focused: '@outline-width #danger.50',
+        '': '0 #clear',
+        focused: '@outline-width #op-border-focus',
       },
       border: {
-        '': '#clear',
-        '[data-type="primary"] & pressed': '#danger-text',
-        '[data-type="secondary"] & pressed': '#danger.3',
-        '[data-type="outline"]': '#danger-text.3',
-        '([data-type="clear"] | [data-type="outline"]) & pressed':
-          '#danger-text.10',
-        '[data-type="outline"] & pressed': '#danger.3',
+        '': '#op-border-critical',
+        '[data-type="primary"] & pressed': '#op-border-critical',
+        '[data-type="outline"]': '#op-border-critical',
+
+        '[data-type="outline"] & pressed': '#op-border-critical',
         '[data-type="link"]': '#clear',
+
+        '[data-type="clear"]': '0',
+        '[data-type="clear"] & hovered | [data-type="clear"]  & pressed':
+          '#op-border-critical',
+
+        '[data-type="invisible"]': '0',
       },
       fill: {
-        '': '#clear',
-        '[data-type="primary"]': '#danger',
-        '[data-type="primary"] & hovered': '#danger-text',
-        '[data-type="primary"] & pressed': '#danger',
+        '': '#op-surface-critical',
+        '[data-type="primary"]': '#op-surface-critical',
+        '[data-type="primary"] & hovered': '#op-surface-critical-hovered',
+        '[data-type="primary"] & pressed': '#op-surface-critical-pressed',
 
-        '[data-type="secondary"]': '#danger.05',
-        '[data-type="secondary"] & hovered': '#danger.1',
-        '[data-type="secondary"] & pressed': '#danger.05',
+        '[data-type="invisible"]': '#clear',
+        '[data-type="invisible"] & hovered': '#clear',
+        '[data-type="invisible"] & pressed': '#clear',
 
-        '[data-type="neutral"]': '#dark.0',
-        '[data-type="neutral"] & hovered': '#dark.04',
-        '[data-type="neutral"] & pressed': '#dark.05',
+        '[data-type="link"]': '#clear',
 
-        '[disabled] & ![data-type="link"]': '#dark.04',
-
-        '[data-type="clear"] | [data-type="outline"]': '#danger.0',
-        '([data-type="clear"] | [data-type="outline"]) & hovered': '#danger.1',
-        '([data-type="clear"] | [data-type="outline"]) & pressed': '#danger.05',
-        '([data-type="clear"] | [data-type="outline"]) & [disabled]':
-          '#danger.0',
+        '[data-type="clear"] | [data-type="outline"]': '#clear',
+        '([data-type="clear"] | [data-type="outline"]) & hovered':
+          '#op-surface-critical-hovered',
+        '([data-type="clear"] | [data-type="outline"]) & pressed':
+          '#op-surface-critical-hovered',
       },
       color: {
-        '': '#white',
+        '': '#op-text-on-primary',
 
-        '[data-type="neutral"]': '#dark.75',
-        '[data-type="neutral"] & hovered': '#dark.75',
-        '[data-type="secondary"]': '#danger',
-        '[data-type="clear"] | [data-type="outline"] | [data-type="link"]':
-          '#danger-text',
-        '[data-type="link"] & pressed': '#danger',
-        '[data-type="neutral"] & pressed': '#danger',
+        '[data-type="invisible"] | [data-type="clear"] | [data-type="outline"]':
+          '#op-text-critical',
+        '[data-type="outline"] & hovered': '#white',
+        '[data-type="outline"] & pressed': '#white',
 
-        '[disabled]': '#dark.30',
+        '[data-type="invisible"] & hovered | [data-type="invisible"] & pressed':
+          '#op-surface-critical-pressed',
+
+        '[data-type="link"]': '#op-text-critical',
+        '[data-type="link"] & hovered | [data-type="link"] & pressed':
+          '#op-surface-critical-pressed',
       },
-    },
-    special: {
-      shadow: {
-        '': false,
-        '[data-type="link"]': '0 @border-width 0 0 #white.44',
-        '[data-type="link"] & (pressed | hovered | [disabled])':
-          '0 0 0 0 #white.44',
+      padding: {
+        '': '1x 2x',
+        '[data-type="link"] | [data-type="invisible"]': 0,
+        '[data-type="icon"] ': '0.5rem',
+        '[data-is-single-icon-only] ': '0.5rem',
       },
-      outline: {
-        '': '0 #white.0',
-        focused: '@outline-width #white.44',
-        '([data-type="primary"] | [data-type="clear"])': '0 #dark-03.80',
-        '([data-type="primary"] | [data-type="clear"]) & focused':
-          '@outline-width #purple-03.80',
-      },
-      border: {
-        '': '#clear',
-        '[data-type="primary"] & pressed': '#purple-03',
-        '[data-type="secondary"] & pressed': '#white.44',
-        '[data-type="outline"] & !pressed': '#white.44',
-      },
-      fill: {
-        '': '#clear',
-
-        '[data-type="primary"]': '#purple',
-        '[data-type="primary"] & pressed': '#purple',
-        '[data-type="primary"] & hovered': '#purple-text',
-
-        '[data-type="secondary"]': '#white.12',
-
-        '[data-type="clear"]': '#white',
-        '[data-type="clear"] & hovered': '#white.94',
-        '[data-type="clear"] & pressed': '#white',
-
-        '[disabled] & ![data-type="link"]': '#white.12',
-
-        '([data-type="neutral"] | [data-type="outline"])': '#white.0',
-        '([data-type="neutral"] | [data-type="outline"] | [data-type="secondary"]) & hovered':
-          '#white.18',
-        '([data-type="neutral"] | [data-type="outline"] | [data-type="secondary"]) & pressed':
-          '#white.12',
-
-        '([data-type="clear"] | [data-type="outline"]) & [disabled]':
-          '#white.0',
-      },
-      color: {
-        // default
-        '': '#white',
-
-        '[data-type="clear"]': '#purple',
-
-        // other
-        '[disabled]': '#white.30',
-      },
+      // filter: {
+      //   '': '',
+      //   '[data-type="link"] & hovered | [data-type="link"] & pressed':
+      //     'brightness(0.7)',
+      // },
     },
   },
 });
@@ -345,13 +269,26 @@ export const Button = forwardRef(function Button(
   return (
     <ButtonElement
       {...actionProps}
-      variant={theme as 'default' | 'danger' | 'special'}
+      variant={theme as 'default' | 'danger'}
       data-theme={theme}
-      data-type={type ?? 'secondary'}
-      data-size={size ?? 'medium'}
+      data-type={type ?? 'primary'}
       styles={styles}
     >
-      {icon || isLoading ? !isLoading ? icon : <CircleNotch /> : null}
+      {icon || isLoading ? (
+        !isLoading ? (
+          icon
+        ) : (
+          <div
+            style={{
+              display: 'grid',
+              placeItems: 'center',
+            }}
+            className="loading-spinner"
+          >
+            <CircleNotch />
+          </div>
+        )
+      ) : null}
       {children}
       {rightIcon}
     </ButtonElement>
