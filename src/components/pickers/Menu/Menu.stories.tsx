@@ -1,12 +1,5 @@
 import { useState } from 'react';
-import {
-  Lightbulb,
-  CheckCircleFill,
-  DotsThreeOutlineVertical,
-  ArrowClockwise,
-  NewspaperClipping,
-  Plus,
-} from '@jengaicons/react';
+import { DotsThreeVerticalFill } from '@jengaicons/react';
 import { action } from '@storybook/addon-actions';
 import { expect } from '@storybook/jest';
 import { userEvent, waitFor, within } from '@storybook/testing-library';
@@ -14,14 +7,11 @@ import { userEvent, waitFor, within } from '@storybook/testing-library';
 import {
   Menu,
   MenuTrigger,
-  Flex,
   Button,
-  Text,
   Root,
   Space,
   AlertDialog,
   DialogContainer,
-  TooltipProvider,
 } from '../../../index';
 import { baseProps } from '../../../stories/lists/baseProps';
 
@@ -85,8 +75,9 @@ export const Default = ({ ...props }) => {
 
       <MenuTrigger>
         <Button
+          type="outline"
           size="small"
-          icon={<DotsThreeOutlineVertical />}
+          icon={<DotsThreeVerticalFill />}
           aria-label="Open Context Menu"
         />
         {menu}
@@ -102,8 +93,9 @@ export const InsideModal = () => {
         content={
           <MenuTrigger>
             <Button
+              type="outline"
               size="small"
-              icon={<DotsThreeOutlineVertical />}
+              icon={<DotsThreeVerticalFill />}
               qa="ContextMenuButton"
               aria-label="Open Context Menu"
             />
@@ -141,107 +133,107 @@ InsideModal.play = async ({ canvasElement }) => {
   await waitFor(() => expect(list).toBeInTheDocument());
 };
 
-export const Sections = (props) => {
-  return (
-    <div style={{ padding: '20px', width: '340px' }}>
-      <Menu id="menu-search" {...props}>
-        <Menu.Section key="line-items" title="Line Items">
-          <Menu.Item key="created">Created At</Menu.Item>
-          <Menu.Item key="name">Name</Menu.Item>
-          <Menu.Item key="description">Descriptions</Menu.Item>
-        </Menu.Section>
-        <Menu.Section title="Orders">
-          <Menu.Item key="status">Status</Menu.Item>
-          <Menu.Item key="completed">Completed At</Menu.Item>
-        </Menu.Section>
-      </Menu>
-    </div>
-  );
-};
+// export const Sections = (props) => {
+//   return (
+//     <div style={{ padding: '20px', width: '340px' }}>
+//       <Menu id="menu-search" {...props}>
+//         <Menu.Section key="line-items" title="Line Items">
+//           <Menu.Item key="created">Created At</Menu.Item>
+//           <Menu.Item key="name">Name</Menu.Item>
+//           <Menu.Item key="description">Descriptions</Menu.Item>
+//         </Menu.Section>
+//         <Menu.Section title="Orders">
+//           <Menu.Item key="status">Status</Menu.Item>
+//           <Menu.Item key="completed">Completed At</Menu.Item>
+//         </Menu.Section>
+//       </Menu>
+//     </div>
+//   );
+// };
 
-export const StyledSectionsAndItems = (props) => {
-  return (
-    <div style={{ padding: '20px', width: '340px' }}>
-      <Menu id="menu-search" {...props}>
-        <Menu.Section key="line-items" title="Line Items">
-          <Menu.Item key="created">Created At</Menu.Item>
-          <Menu.Item key="name">Name</Menu.Item>
-          <Menu.Item key="description">Descriptions</Menu.Item>
-        </Menu.Section>
-        <Menu.Section title="Orders">
-          <Menu.Item key="status">Status</Menu.Item>
-          <Menu.Item key="completed">Completed At</Menu.Item>
-        </Menu.Section>
-      </Menu>
-    </div>
-  );
-};
-StyledSectionsAndItems.args = {
-  itemStyles: { color: 'red' },
-  sectionHeadingStyles: { color: 'blue' },
-  sectionStyles: { padding: '1x' },
-};
+// export const StyledSectionsAndItems = (props) => {
+//   return (
+//     <div style={{ padding: '20px', width: '340px' }}>
+//       <Menu id="menu-search" {...props}>
+//         <Menu.Section key="line-items" title="Line Items">
+//           <Menu.Item key="created">Created At</Menu.Item>
+//           <Menu.Item key="name">Name</Menu.Item>
+//           <Menu.Item key="description">Descriptions</Menu.Item>
+//         </Menu.Section>
+//         <Menu.Section title="Orders">
+//           <Menu.Item key="status">Status</Menu.Item>
+//           <Menu.Item key="completed">Completed At</Menu.Item>
+//         </Menu.Section>
+//       </Menu>
+//     </div>
+//   );
+// };
+// StyledSectionsAndItems.args = {
+//   itemStyles: { color: 'red' },
+//   sectionHeadingStyles: { color: 'blue' },
+//   sectionStyles: { padding: '1x' },
+// };
 
-export const GitActions = (props) => {
-  const bulbIcon = (
-    <Text>
-      <Lightbulb />
-    </Text>
-  );
-  const successIcon = (
-    <Text color="#success">
-      <CheckCircleFill />
-    </Text>
-  );
-  const stuffText = (
-    <Text nowrap color="inherit">
-      Suff
-    </Text>
-  );
+// export const GitActions = (props) => {
+//   const bulbIcon = (
+//     <Text>
+//       <Lightbulb />
+//     </Text>
+//   );
+//   const successIcon = (
+//     <Text color="#success">
+//       <CheckCircleFill />
+//     </Text>
+//   );
+//   const stuffText = (
+//     <Text nowrap color="inherit">
+//       Suff
+//     </Text>
+//   );
 
-  return (
-    <Space gap="10x" placeContent="start start" alignItems="start">
-      <Menu id="menu" {...props} header="Git Actions">
-        <Menu.Item key="red">Merge to master</Menu.Item>
-        <Menu.Item key="orange" mods={{ hovered: true }}>
-          Merge to master (hovered)
-        </Menu.Item>
-        <Menu.Item key="yellow" postfix="Suff" mods={{ disabled: true }}>
-          Merge to master (disabled)
-        </Menu.Item>
-        <Menu.Item
-          key="green"
-          postfix={
-            <Flex gap="0.5x">
-              {bulbIcon}
-              {stuffText}
-            </Flex>
-          }
-        >
-          Merge to master
-        </Menu.Item>
-        <Menu.Item
-          key="blue"
-          mods={{ pressed: true }}
-          postfix={
-            <Flex gap="0.5x">
-              {successIcon}
-              {stuffText}
-            </Flex>
-          }
-        >
-          Merge to master (pressed)
-        </Menu.Item>
-        <Menu.Item key="purple" postfix={successIcon}>
-          Merge to master
-        </Menu.Item>
-        <Menu.Item key="asdasd" postfix={<Flex gap="0.5x">{bulbIcon}</Flex>}>
-          Merge to master
-        </Menu.Item>
-      </Menu>
-    </Space>
-  );
-};
+//   return (
+//     <Space gap="10x" placeContent="start start" alignItems="start">
+//       <Menu id="menu" {...props} header="Git Actions">
+//         <Menu.Item key="red">Merge to master</Menu.Item>
+//         <Menu.Item key="orange" mods={{ hovered: true }}>
+//           Merge to master (hovered)
+//         </Menu.Item>
+//         <Menu.Item key="yellow" postfix="Suff" mods={{ disabled: true }}>
+//           Merge to master (disabled)
+//         </Menu.Item>
+//         <Menu.Item
+//           key="green"
+//           postfix={
+//             <Flex gap="0.5x">
+//               {bulbIcon}
+//               {stuffText}
+//             </Flex>
+//           }
+//         >
+//           Merge to master
+//         </Menu.Item>
+//         <Menu.Item
+//           key="blue"
+//           mods={{ pressed: true }}
+//           postfix={
+//             <Flex gap="0.5x">
+//               {successIcon}
+//               {stuffText}
+//             </Flex>
+//           }
+//         >
+//           Merge to master (pressed)
+//         </Menu.Item>
+//         <Menu.Item key="purple" postfix={successIcon}>
+//           Merge to master
+//         </Menu.Item>
+//         <Menu.Item key="asdasd" postfix={<Flex gap="0.5x">{bulbIcon}</Flex>}>
+//           Merge to master
+//         </Menu.Item>
+//       </Menu>
+//     </Space>
+//   );
+// };
 
 export const MenuSelectableSingle = (props) => {
   const [selectedKeys, setSelectedKeys] = useState(['1']);
@@ -307,115 +299,115 @@ export const MenuSelectableRadio = (props) => {
   });
 };
 
-export const PaymentDetails = (props) => {
-  return (
-    <div style={{ padding: '20px', width: '340px' }}>
-      <Menu id="menu" {...props} header="Payment Details">
-        <Menu.Item key="red" postfix="March, 2022">
-          Invoice #16C7B3AE-000113-000113
-        </Menu.Item>
-        <Menu.Item key="orange" postfix="Jan, 2022">
-          Invoice #16C7B3AE
-        </Menu.Item>
-        <Menu.Item key="purple" postfix="Feb, 2022">
-          Invoice #16C7B3AE manual
-        </Menu.Item>
-        <Menu.Item key="yellow" postfix="July, 2022">
-          #16C7B3AE
-        </Menu.Item>
-      </Menu>
-    </div>
-  );
-};
+// export const PaymentDetails = (props) => {
+//   return (
+//     <div style={{ padding: '20px', width: '340px' }}>
+//       <Menu id="menu" {...props} header="Payment Details">
+//         <Menu.Item key="red" postfix="March, 2022">
+//           Invoice #16C7B3AE-000113-000113
+//         </Menu.Item>
+//         <Menu.Item key="orange" postfix="Jan, 2022">
+//           Invoice #16C7B3AE
+//         </Menu.Item>
+//         <Menu.Item key="purple" postfix="Feb, 2022">
+//           Invoice #16C7B3AE manual
+//         </Menu.Item>
+//         <Menu.Item key="yellow" postfix="July, 2022">
+//           #16C7B3AE
+//         </Menu.Item>
+//       </Menu>
+//     </div>
+//   );
+// };
 
-export const ItemCustomIcons = (props) => {
-  const [selectedKeys, setSelectedKeys] = useState(['1']);
-  const onSelectionChange = (key) => {
-    setSelectedKeys(key);
-  };
+// export const ItemCustomIcons = (props) => {
+//   const [selectedKeys, setSelectedKeys] = useState(['1']);
+//   const onSelectionChange = (key) => {
+//     setSelectedKeys(key);
+//   };
 
-  return (
-    <div style={{ padding: '20px', width: '340px' }}>
-      <Menu
-        id="menu"
-        {...props}
-        selectionIcon="checkbox"
-        selectionMode="single"
-        selectedKeys={selectedKeys}
-        header="Custom Icons"
-        onSelectionChange={onSelectionChange}
-      >
-        <Menu.Item key="red" icon={<ArrowClockwise />} postfix="March, 2022">
-          #16C7B3AE-000113-000113
-        </Menu.Item>
-        <Menu.Item
-          key="orange"
-          icon={<NewspaperClipping />}
-          postfix="Jan, 2022"
-        >
-          #16C7B3AE
-        </Menu.Item>
-        <Menu.Item key="purple" icon={<Plus />} postfix="Feb, 2022">
-          #16C7B3AE
-        </Menu.Item>
-        <Menu.Item key="yellow" icon={<ArrowClockwise />} postfix="July, 2022">
-          #16C7B3AE
-        </Menu.Item>
-      </Menu>
-    </div>
-  );
-};
+//   return (
+//     <div style={{ padding: '20px', width: '340px' }}>
+//       <Menu
+//         id="menu"
+//         {...props}
+//         selectionIcon="checkbox"
+//         selectionMode="single"
+//         selectedKeys={selectedKeys}
+//         header="Custom Icons"
+//         onSelectionChange={onSelectionChange}
+//       >
+//         <Menu.Item key="red" icon={<ArrowClockwise />} postfix="March, 2022">
+//           #16C7B3AE-000113-000113
+//         </Menu.Item>
+//         <Menu.Item
+//           key="orange"
+//           icon={<NewspaperClipping />}
+//           postfix="Jan, 2022"
+//         >
+//           #16C7B3AE
+//         </Menu.Item>
+//         <Menu.Item key="purple" icon={<Plus />} postfix="Feb, 2022">
+//           #16C7B3AE
+//         </Menu.Item>
+//         <Menu.Item key="yellow" icon={<ArrowClockwise />} postfix="July, 2022">
+//           #16C7B3AE
+//         </Menu.Item>
+//       </Menu>
+//     </div>
+//   );
+// };
 
-export const ItemWithTooltip = (props) => {
-  const [selectedKeys, setSelectedKeys] = useState(['1']);
-  const onSelectionChange = (key) => {
-    setSelectedKeys(key);
-  };
+// export const ItemWithTooltip = (props) => {
+//   const [selectedKeys, setSelectedKeys] = useState(['1']);
+//   const onSelectionChange = (key) => {
+//     setSelectedKeys(key);
+//   };
 
-  return (
-    <div style={{ padding: '20px', width: '340px' }}>
-      <Menu
-        id="menu"
-        {...props}
-        selectionIcon="checkbox"
-        selectionMode="single"
-        selectedKeys={selectedKeys}
-        header="Custom Icons"
-        onSelectionChange={onSelectionChange}
-      >
-        <Menu.Item
-          key="red"
-          wrapper={(item) => (
-            <TooltipProvider title="Color description" placement="right">
-              {item}
-            </TooltipProvider>
-          )}
-          icon={<ArrowClockwise />}
-        >
-          #16C7B3AE-000113-000113
-        </Menu.Item>
-        <Menu.Item
-          key="orange"
-          wrapper={(item) => (
-            <TooltipProvider title="Color description" placement="right">
-              {item}
-            </TooltipProvider>
-          )}
-          icon={<NewspaperClipping />}
-        >
-          #16C7B3AE
-        </Menu.Item>
-      </Menu>
-    </div>
-  );
-};
+//   return (
+//     <div style={{ padding: '20px', width: '340px' }}>
+//       <Menu
+//         id="menu"
+//         {...props}
+//         selectionIcon="checkbox"
+//         selectionMode="single"
+//         selectedKeys={selectedKeys}
+//         header="Custom Icons"
+//         onSelectionChange={onSelectionChange}
+//       >
+//         <Menu.Item
+//           key="red"
+//           wrapper={(item) => (
+//             <TooltipProvider title="Color description" placement="right">
+//               {item}
+//             </TooltipProvider>
+//           )}
+//           icon={<ArrowClockwise />}
+//         >
+//           #16C7B3AE-000113-000113
+//         </Menu.Item>
+//         <Menu.Item
+//           key="orange"
+//           wrapper={(item) => (
+//             <TooltipProvider title="Color description" placement="right">
+//               {item}
+//             </TooltipProvider>
+//           )}
+//           icon={<NewspaperClipping />}
+//         >
+//           #16C7B3AE
+//         </Menu.Item>
+//       </Menu>
+//     </div>
+//   );
+// };
 
-ItemWithTooltip.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  const button = (await canvas.getAllByRole('button'))[0];
-  // this is a weird hack that makes tooltip working properly on a page load
-  await userEvent.unhover(button);
-  await userEvent.hover(button);
+// ItemWithTooltip.play = async ({ canvasElement }) => {
+//   const canvas = within(canvasElement);
+//   const button = (await canvas.getAllByRole('button'))[0];
+//   // this is a weird hack that makes tooltip working properly on a page load
+//   await userEvent.unhover(button);
+//   await userEvent.hover(button);
 
-  await waitFor(() => expect(canvas.getByRole('tooltip')).toBeInTheDocument());
-};
+//   await waitFor(() => expect(canvas.getByRole('tooltip')).toBeInTheDocument());
+// };
