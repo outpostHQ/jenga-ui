@@ -11,7 +11,7 @@ export default {
   title: 'Pickers/ComboBox',
   component: ComboBox,
   subcomponents: { Item: ComboBox.Item },
-  args: { id: 'name', width: '200px', label: 'Choose your favourite color' },
+  args: { id: 'name', label: 'Choose your favourite color' },
   parameters: { controls: { exclude: baseProps } },
   argTypes: { ...SELECTED_KEY_ARG },
 } as Meta<JengaComboBoxProps<any>>;
