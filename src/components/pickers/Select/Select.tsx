@@ -1,4 +1,4 @@
-import { Check, CircleNotch, Warning } from '@jengaicons/react';
+import { CaretDownFill, Check, CircleNotch, Warning } from '@jengaicons/react';
 import {
   cloneElement,
   forwardRef,
@@ -51,51 +51,23 @@ import { DEFAULT_BUTTON_STYLES } from '../../actions';
 
 import type { AriaSelectProps } from '@react-types/select';
 
-function CaretDownIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      width="14"
-      height="14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M11.49 4.102H2.51c-.269 0-.42.284-.253.478l4.49 5.206a.342.342 0 00.506 0l4.49-5.206c.167-.194.016-.478-.253-.478z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 const SelectWrapperElement = tasty({
   styles: {
     display: 'grid',
     position: 'relative',
-    radius: true,
+    radius: '2r',
     fill: {
-      '': '#white',
-      disabled: '#dark.04',
-      '[data-theme="special"]': '#clear',
+      '': '#op-surface',
     },
+    cursor: { '': 'pointer', disabled: 'not-allowed' },
     color: {
-      '': '#dark.85',
-      focused: '#dark.85',
-      invalid: '#danger-text',
-      disabled: '#dark.30',
+      '': '#op-text',
+      invalid: '#op-text-critical',
     },
-
     Value: {
       ...DEFAULT_INPUT_STYLES,
-      preset: {
-        '': 't3',
-        '[data-type="primary"]': 't3m',
-      },
-      color: 'inherit',
-      opacity: {
-        '': 1,
-        placeholder: '.6',
-      },
+      fontSize: '14px',
+      color: { '': 'inherit', placeholder: '#op-text-placeholder' },
       textAlign: 'left',
       fill: '#clear',
       textOverflow: 'ellipsis',
@@ -120,39 +92,34 @@ const SelectWrapperElement = tasty({
       color: 'inherit',
       fontSize: '@icon-size',
     },
+    width: ['60%', '70%', '100%'],
   },
 });
 
 const SelectElement = tasty({
   as: 'button',
   qa: 'Button',
+
   styles: {
     ...INPUT_WRAPPER_STYLES,
     ...DEFAULT_BUTTON_STYLES,
-    preset: 't3m',
     cursor: 'pointer',
     padding: '0',
     gap: '0',
+    minWidth: '100%',
+    width: '100%',
     border: {
-      '': true,
-      valid: '#success-text.50',
-      invalid: '#danger-text.50',
-      '[data-type="primary"]': '#clear',
-      '[data-type="clear"]': '#clear',
-      '[data-theme="special"] & [data-type="secondary"] & pressed': '#white.44',
-      disabled: true,
+      '': '#op-border',
+      valid: '#op-border-success',
+      invalid: '#op-border-critical',
     },
     fill: {
       '': '#clear',
-      '[data-type="primary"]': '#purple',
-      '[data-type="primary"] & pressed': '#purple',
-      '[data-type="primary"] & hovered': '#purple-text',
+      '[data-type="primary"]': '#clear',
 
-      '[data-type="secondary"]': '#dark.0',
+      '[data-type="secondary"]': '#clear',
       '[data-type="secondary"] & hovered': '#dark.04',
       '[data-type="secondary"] & pressed': '#dark.05',
-
-      '[disabled]': '#dark.04',
 
       '([data-type="clear"] | [data-type="outline"])': '#purple.0',
       '([data-type="clear"] | [data-type="outline"]) & hovered': '#purple.16',
@@ -171,14 +138,12 @@ const SelectElement = tasty({
       '[data-theme="special"] & [data-type="clear"] & [disabled]': '#white.0',
     },
     color: {
-      '': '#white',
+      '': '#op-text',
 
       '[data-type="secondary"]': '#dark.75',
       '[data-type="secondary"] & hovered': '#dark.75',
       '[data-type="clear"]': '#purple-text',
       '[data-type="secondary"] & pressed': '#purple',
-
-      '[disabled]': '#dark.30',
 
       // special
       '[data-theme="special"]': '#white',
@@ -216,19 +181,19 @@ const OptionElement = tasty({
     cursor: 'pointer',
     radius: true,
     fill: {
-      '': '#dark.0',
-      'pressed | selected': '#purple.10',
-      'hovered | focused': '#dark.04',
+      '': '#op-surface',
+      'hovered | focused': '#op-surface-hovered',
+      'pressed | selected': '#op-surface-active',
       disabled: '#dark.0',
     },
     color: {
-      '': '#dark.75',
-      'hovered | focused': '#dark.75',
-      'pressed | selected': '#purple',
+      '': '#op-text',
+      // 'hovered | focused': '#dark.75',
+      // 'pressed | selected': '#purple',
       disabled: '#dark.3',
     },
-    preset: 't3',
     transition: 'theme',
+    fontSize: '14px',
   },
 });
 
@@ -326,7 +291,6 @@ function Select<T extends object>(
     tooltip,
     size,
     styles,
-    type = 'secondary',
     theme = 'default',
     labelSuffix,
     ellipsis,
@@ -430,8 +394,7 @@ function Select<T extends object>(
       qa={qa || 'Select'}
       mods={modifiers}
       styles={outerStyles}
-      data-size={size}
-      data-type={type}
+      data-type={'primary'}
       data-theme={theme}
     >
       <HiddenSelect
@@ -446,7 +409,7 @@ function Select<T extends object>(
         styles={inputStyles}
         data-theme={theme}
         data-size={size}
-        data-type={type}
+        data-type={'primary'}
         mods={modifiers}
       >
         {prefix ? <div data-element="Prefix">{prefix}</div> : null}
@@ -461,7 +424,7 @@ function Select<T extends object>(
           {isLoading && <CircleNotch />}
           {suffixPosition === 'after' ? suffix : null}
           <div data-element="CaretIcon">
-            <CaretDownIcon />
+            <CaretDownFill />
           </div>
         </div>
       </SelectElement>

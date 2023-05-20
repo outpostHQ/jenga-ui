@@ -158,7 +158,7 @@ export const FieldWrapper = forwardRef(function FieldWrapper(
       as={as ?? 'div'}
       mods={mods}
       isHidden={isHidden}
-      styles={styles}
+      styles={{ width: '100%', ...styles }}
       {...fieldProps}
     >
       {labelComponent || descriptionComponent ? (
