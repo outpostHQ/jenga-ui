@@ -11,7 +11,6 @@ import { Select, JengaSelectProps } from './Select';
 export default {
   title: 'Pickers/Select',
   component: Select,
-  args: { width: '200px' },
   subcomponents: { Item: Select.Item },
   parameters: { controls: { exclude: baseProps } },
   argTypes: {
@@ -58,11 +57,11 @@ const Template: Story<JengaSelectProps<any>> = (args) => (
 export const Default = Template.bind({});
 Default.args = {};
 
-export const Primary = Template.bind({});
-Primary.args = { type: 'primary', placeholder: 'primary' };
+// export const Primary = Template.bind({});
+// Primary.args = { type: 'primary', placeholder: 'primary' };
 
-export const Clear = Template.bind({});
-Clear.args = { type: 'clear', placeholder: 'clear', width: 'min-content' };
+// export const Clear = Template.bind({});
+// Clear.args = { type: 'clear', placeholder: 'clear', width: 'min-content' };
 
 export const Invalid = Template.bind({});
 Invalid.args = { selectedKey: 'yellow', validationState: 'invalid' };
@@ -94,17 +93,6 @@ WithDisabledOption.play = async ({ canvasElement }) => {
 
   await userEvent.click(button);
 };
-
-export const Wide: Story<JengaSelectProps<any>> = (args) => (
-  <Select {...args}>
-    {options.map((option) => (
-      <Select.Item key={option}>
-        {option} lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </Select.Item>
-    ))}
-  </Select>
-);
-Wide.args = { width: '500px', defaultSelectedKey: options[0] };
 
 export const WithEllipsis = Template.bind({});
 WithEllipsis.args = {
