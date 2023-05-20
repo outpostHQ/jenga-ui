@@ -11,7 +11,7 @@ export const StyledMenu = tasty({
       '': '1bw',
       sections: '',
     },
-    fill: '#white',
+    fill: '#op-surface',
     margin: '0',
     padding: {
       '': '0.5x',
@@ -23,15 +23,15 @@ export const StyledMenu = tasty({
       section: '',
     },
     border: {
-      '': '#dark-05',
+      '': '#op-border',
       section: '',
     },
     radius: {
-      '': '1r',
+      '': '2r',
     },
     boxShadow: {
       '': '',
-      popover: '0px 5px 15px #dark.05',
+      popover: '0px 5px 15px #op-shadow',
     },
   },
 });
@@ -84,10 +84,14 @@ export const StyledMenuItem = tasty({
     margin: '0',
     padding: '0',
     listStyle: 'none',
-    fill: '#white',
+    fill: {
+      '': '#op-surface',
+      hovered: '#op-surface-hovered',
+      pressed: '#op-surface-active',
+    },
     preset: 't3m',
     color: {
-      '': 'inherit',
+      '': '#op-text',
       disabled: '#dark-04',
     },
   },
