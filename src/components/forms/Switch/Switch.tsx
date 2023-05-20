@@ -71,18 +71,17 @@ const SwitchElement = tasty({
     placeItems: 'center',
     radius: 'round',
     fill: {
-      '': '#dark.50',
-      checked: '#purple',
-      disabled: '#dark.12',
+      '': '#op-surface',
+      checked: '#op-surface-primary',
     },
     color: '#white',
-    border: false,
+    border: '#op-border',
     width: {
-      '': '5.25x 5.25x',
+      '': '45px',
       '[data-size="small"]': '3.5x 3.5x',
     },
     height: {
-      '': '3x 3x',
+      '': '25px',
       '[data-size="small"]': '2x 2x',
     },
     outline: {
@@ -90,36 +89,47 @@ const SwitchElement = tasty({
       focused: '#purple-03',
     },
     transition: 'theme',
-    cursor: 'pointer',
+
     placeSelf: {
       '': null,
       'inside-form & side-label': 'start',
+    },
+    opacity: {
+      '': 1,
+      disabled: 0.5,
+    },
+    cursor: {
+      '': 'pointer',
+      disabled: 'not-allowed',
     },
 
     Thumb: {
       position: 'absolute',
       width: {
-        '': '2.5x 2.5x',
+        '': '19px',
         '[data-size="small"]': '1.5x 1.5x',
       },
       height: {
-        '': '2.5x 2.5x',
+        '': '19px',
         '[data-size="small"]': '1.5x 1.5x',
       },
       radius: 'round',
       fill: {
-        '': 'currentColor',
+        '': '#op-surface-primary',
+        checked: '#op-surface',
         disabled: '#white.5',
       },
-      shadow: '0px 2px 4px #dark.20;',
-      top: '.25x',
+      top: {
+        '': '3px',
+        '[data-size="small"]': '2px',
+      },
       left: {
-        '': '.25x',
-        checked: '2.5x',
-        'checked & [data-size="small"]': '1.75x',
+        '': '3px',
+        '[data-size="small"]': '2px',
+        checked: '2.8125x',
+        'checked & [data-size="small"]': '1.725x',
       },
       transition: 'left, theme',
-      cursor: 'pointer',
     },
   },
 });
