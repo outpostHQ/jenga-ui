@@ -417,6 +417,7 @@ html[data-theme='dark'] {
   --op-icon-primary-color: var(--op-violet-600);
   --op-icon-secondary-color: var(--op-pink-500);
 
+  --op-text-placeholder-color: #C9C5CA;
   /* BORDERS */
 
   --op-border-color: var(--op-gray-200);
@@ -427,6 +428,7 @@ html[data-theme='dark'] {
   --op-border-secondary-color: rgba(148, 65, 112, 0.533);
   --op-border-focus-color: rgb(79, 219, 209);
   --op-shadow-color: rgba(188, 187, 232, 0.329);
+
     --font: ${({ font }: GlobalStylesProps) =>
       font ||
       'Inter'}, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
