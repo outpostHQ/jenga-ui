@@ -60,10 +60,11 @@ export const INLINE_LABEL_STYLES: Styles = {
 
 export const LABEL_STYLES: Styles = {
   display: 'block',
-  preset: 'h6',
+  fontSize: '14px',
+  fontWeight: 'normal',
   color: {
-    '': '#dark',
-    invalid: '#danger-text',
+    '': '#op-text',
+    invalid: '#op-text-critical',
   },
   whiteSpace: 'nowrap',
   width: {

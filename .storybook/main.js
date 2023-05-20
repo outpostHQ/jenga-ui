@@ -18,7 +18,7 @@ const config = {
   },
   stories: [
     '../src/components/actions/**/*.stories.mdx',
-    '../src/components/forms/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/components/pickers/ComboBox/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
