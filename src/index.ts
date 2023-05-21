@@ -10,7 +10,7 @@ export { Block } from './components/Block';
 export type { JengaBlockProps } from './components/Block';
 export { ActiveZone } from './components/content/ActiveZone/ActiveZone';
 export type { JengaActiveZoneProps } from './components/content/ActiveZone/ActiveZone';
-export * from './components/content/CopySnippet';
+export { CopySnippet } from './components/content/CopySnippet';
 export { Grid } from './components/layout/Grid';
 export type { JengaGridProps } from './components/layout/Grid';
 export { Flex } from './components/layout/Flex';
